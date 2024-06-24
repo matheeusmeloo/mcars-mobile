@@ -42,16 +42,16 @@
             </div>
             <div>
               <p>Ou continue com</p>
-              <div class="columns is-mobile">
-                <div class="column input is-white">
+              <div class="is-mobile">
+                <button class="button is-white is-outlined">
                   <img class="is-rounded image is-32x32" src="./assets/logos/logo-google-login.png" alt="">
-                </div>
-                <div class="column input is-white">
-                    <img class="is-rounded image is-32x32" src="./assets/logos/logo-facebook-login.svg" alt="">
-                </div>
-                <div class="column input is-white">
-                    <img class="is-rounded image is-32x32" src="./assets/logos/logo-apple-login.png" alt="">
-                </div>
+                </button>
+                <button class="button is-white is-outlined">
+                  <img class="is-rounded image is-32x32" src="./assets/logos/logo-facebook-login.svg" alt="">
+                </button>
+                <button class="button is-white is-outlined">
+                  <img class="is-rounded image is-32x32" src="./assets/logos/logo-apple-login.png" alt="">
+                </button>
               </div>
             </div>
           </div>
