@@ -9,35 +9,52 @@
     <link rel="stylesheet" href="./css/style.css">
   </head>
   <body>
-      <div class="column" style="padding-top: 3em;></div>
-      <div class="container is-fluid">
-          <div class="field">
-              <p class="control has-icons-left has-icons-right">
-                <input class="input is-white" type="email" placeholder="Email">
-                    <span class="icon is-small is-left is-white">
-                      <i class="fas fa-envelope"></i>
+      <div class="column" style="padding-top: 3em;">
+          <div class="container box is-fluid">
+              <div class="field">
+                  <p class="control has-icons-left has-icons-right">
+                    <label class="label">Login</label>
+                    <input class="input is-white" type="email">
+                        <span class="icon is-small is-left is-white">
+                          <i class="fas fa-envelope"></i>
+                        </span>
+                        <span class="icon is-small is-right">
+                          <i class="fas fa-check"></i>
+                        </span>
+                  </p>
+              </div>
+              <br>
+            <div class="field">
+                  <p class="control has-icons-left">
+                  <label class="label">Senha</label>
+                    <input class="input is-white" type="password">
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-lock"></i>
                     </span>
-                    <span class="icon is-small is-right">
-                      <i class="fas fa-check"></i>
-                    </span>
+                  </p>
+            </div>
+            <div class="field">
+              <p class="control">
+                <button class="button is-white is-large is-fullwidth">
+                  Login
+                </button>
               </p>
+            </div>
+            <div>
+              <p>Ou continue com</p>
+              <div class="columns is-mobile">
+                <div class="column input is-white">
+                  <img class="is-rounded image is-32x32" src="./assets/logos/logo-google-login.png" alt="">
+                </div>
+                <div class="column input is-white">
+                    <img class="is-rounded image is-32x32" src="./assets/logos/logo-facebook-login.svg" alt="">
+                </div>
+                <div class="column input is-white">
+                    <img class="is-rounded image is-32x32" src="./assets/logos/logo-apple-login.png" alt="">
+                </div>
+              </div>
+            </div>
           </div>
-          <br>
-        <div class="field">
-              <p class="control has-icons-left">
-                <input class="input is-white" type="password" placeholder="Password">
-                <span class="icon is-small is-left">
-                  <i class="fas fa-lock"></i>
-                </span>
-              </p>
-        </div>
-        <div class="field">
-          <p class="control">
-            <button class="button is-white is-large is-fullwidth">
-              Login
-            </button>
-          </p>
-        </div>
       </div>
   </body>
 </html>
