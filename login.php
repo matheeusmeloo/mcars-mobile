@@ -41,17 +41,28 @@
               </p>
             </div>
             <div>
+              <br>
               <p>Ou continue com</p>
-              <div class="is-mobile">
-                <button class="button is-white is-outlined">
-                  <img class="is-rounded image is-32x32" src="./assets/logos/logo-google-login.png" alt="">
-                </button>
-                <button class="button is-white is-outlined">
-                  <img class="is-rounded image is-32x32" src="./assets/logos/logo-facebook-login.svg" alt="">
-                </button>
-                <button class="button is-white is-outlined">
-                  <img class="is-rounded image is-32x32" src="./assets/logos/logo-apple-login.png" alt="">
-                </button>
+              <br>
+              <br>
+              <div class="fixed-grid has-3-cols ">
+                <div class="grid is-centered">
+                    <div class="cell">
+                        <button class="button is-white is-outlined">
+                          <img class="image is-32x32" src="./assets/logos/logo-google-login.png" alt="">
+                        </button>
+                    </div>
+                    <div class="cell">
+                        <button class="button is-white is-outlined">
+                          <img class="image is-32x32" src="./assets/logos/logo-facebook-login.svg" alt="">
+                        </button>
+                    </div>
+                    <div class="cell">
+                        <button class="button is-white is-outlined">
+                          <img class="image is-32x32" src="./assets/logos/logo-apple-login.png" alt="">
+                        </button>
+                    </div>
+                </div>
               </div>
             </div>
           </div>
