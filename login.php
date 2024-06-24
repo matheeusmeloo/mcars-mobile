@@ -9,21 +9,23 @@
     <link rel="stylesheet" href="./css/style.css">
   </head>
   <body>
+      <div class="column" style="padding-top: 3em;></div>
       <div class="container is-fluid">
           <div class="field">
               <p class="control has-icons-left has-icons-right">
-            <input class="input" type="email" placeholder="Email">
-            <span class="icon is-small is-left">
-              <i class="fas fa-envelope"></i>
-            </span>
-            <span class="icon is-small is-right">
-              <i class="fas fa-check"></i>
-            </span>
-            </p>
+                <input class="input is-white" type="email" placeholder="Email">
+                    <span class="icon is-small is-left is-white">
+                      <i class="fas fa-envelope"></i>
+                    </span>
+                    <span class="icon is-small is-right">
+                      <i class="fas fa-check"></i>
+                    </span>
+              </p>
           </div>
+          <br>
         <div class="field">
               <p class="control has-icons-left">
-                <input class="input" type="password" placeholder="Password">
+                <input class="input is-white" type="password" placeholder="Password">
                 <span class="icon is-small is-left">
                   <i class="fas fa-lock"></i>
                 </span>
@@ -31,7 +33,7 @@
         </div>
         <div class="field">
           <p class="control">
-            <button class="button is-success">
+            <button class="button is-white is-large is-fullwidth">
               Login
             </button>
           </p>
