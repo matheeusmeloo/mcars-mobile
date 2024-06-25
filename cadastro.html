@@ -36,10 +36,10 @@
           <label class="label">Senha</label>
           <div class="field has-addons">
             <div class="control is-expanded">
-              <input class="input is-medium" type="password" placeholder="******" style="border: 0cap; background-color: #F4F4F4;" id="lookEye">
+              <input class="input is-medium" type="password" placeholder="******" style="border: 0cap; background-color: #F4F4F4;" id="password">
             </div>
             <div class="control">
-              <button class="button is-large" style="border: 0cap; background-color: #F4F4F4;">
+              <button onclick="lookEye()" class="button is-large" style="border: 0cap; background-color: #F4F4F4;">
                 <i class="fas fa-eye"></i>
               </button>
             </div>
@@ -50,11 +50,38 @@
                   Cadastrar
               </button>
               <br>
+              <br>
+              <div class="container block">
+                  
+                    <h4 class="subtitle is-4" style="text-align: center;"><i class="bola"></i> Ou continue com <i class="bola"></i></h4>
+              </div>
+              <br>
+              <div class="fixed-grid has-3-cols">
+                <div class="grid">
+                      <div class="cell">
+                        <button onclick="loading_gg()" class="button is-large is-fullwidth" id="btn-login-google" style="height: 4em;">
+                          <i class="fa-brands fa-google fa-2xl"></i>
+                        </button>
+                      </div>
+                      <div class="cell">
+                        <button onclick="loading_fb()" class="button is-dark is-large is-fullwidth" id="btn-login-facebook" style="height: 4em;">
+                          <i class="has-white fa-brands fa-facebook-f fa-2xl"></i>
+                        </button>
+                      </div>
+                      <div class="cell">
+                        <button onclick="loading_apple()" class="button is-large is-fullwidth" id="btn-login-apple" style="height: 4em;">
+                          <i class="fa-brands fa-apple fa-2xl"></i>
+                        </button>
+                      </div>
+                </div>
+              </div>
               <div>
-                  <p  style="text-align: center;">Já tem uma conta? <strong><a href="javascript:history.go(-1)" style="color: rgb(0, 0, 0);">Entrar</a></strong></p>
+                  <p  style="text-align: center; font-size: 1.5em;">Já tem uma conta? <strong><a href="javascript:history.go(-1)" style="color: rgb(0, 0, 0);">Entrar</a></strong></p>
               </div>
         </section>
         </div>
+        <br>
+        <br>
         <!-- Javascript início -->
         <script src="./js/javascript.js"></script>
         <!-- Fim Javascript -->
