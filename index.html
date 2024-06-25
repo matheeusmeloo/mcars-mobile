@@ -4,50 +4,118 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MCars</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
     <link rel="icon" type="image/x-icon" href="./assets/icons/favicon-mcars.svg">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <div class="container">
-      <div class="columns is-mobile">
-        <div class="column"></div>
-        <div class="column"></div>
-        <div class="column">
-            <img src="./assets/logos/logo-mc-white.svg" alt="Logo empresa MCars" style="padding-top: 3em;">
-        </div>
-        <div class="column"></div>
-        <div class="column"></div>
-      </div>
-      <br>
-      <br>
-    <!-- Aqui vai  a imagem principal -->
-
-      <div class="columns is-mobile">
-        <div class="column">
-          <img src="./assets/images/carro-pg-home.png" alt="Carro porsche tela inicial">
-        </div>
-      </div>
-      <!-- Texto apresentação -->
-      <div class="container is-fluid">
-        <div class="columns is-mobile">
-          <div class="column" style="text-align: center;">
-            <h2 class="title is-2">MCars.</h2>
-            <h3 class="title is-3">Aproveite o Premium</h3>
-            <p class="is-size-5">Encontre uma variedade do carro dos seus sonhos, com bom preço e qualidade premium.</p>
-          </div>
-        </div>
-        <!-- FIM Texto apresentação -->
-        <section class="container block">
-            <a href="login.php">
-              <button class="button is-white is-large is-fullwidth">Iniciar</button>
-            </a>
-            <br>
-            <div>
-              <p style="text-align: center;">Já tem uma conta? <a href="cadastro.html" style="color: aliceblue;">Entrar</a></p>
-            </div>
-        </section>
-      </div>
+                <!-- Logo da empresa no topo -->
+                <div class="columns is-mobile">
+                        <div class="column"></div>
+                        <div class="column"></div>
+                        <div class="column">
+                            <img src="./assets/logos/logo-mc-white.svg" alt="Logo empresa MCars" style="padding-top: 1em;">
+                        </div>
+                        <div class="column"></div>
+                        <div class="column"></div>
+                </div>
+                <!-- Fim do logo da empresa no topo -->
+                <br>
+                <!-- Imagem principal -->
+                <div class="columns">
+                          <div class="column">
+                            <img src="./assets/images/carro-pg-home.png" alt="Carro porsche tela inicial">
+                          </div>
+                </div>
+                <!-- Fim da imagem principal -->
+                <!-- Texto apresentação -->
+                <div class="container is-fluid">
+                          <div class="columns is-mobile">
+                            <div class="column" style="text-align: center;">
+                              <h2 class="title is-2">MCars.</h2>
+                              <h3 class="title is-3">Aproveite o Premium</h3>
+                              <p class="is-size-5">Encontre uma variedade do carro dos seus sonhos, com bom preço e qualidade premium.</p>
+                            </div>
+                  </div>
+                  <!-- FIM Texto apresentação -->
+                  <section class="container block">
+                                  <!-- <button class="js-modal-trigger button is-white is-large is-fullwidth" data-target="modal-js-example"> -->
+                                  <a href="cadastro.html">
+                                      <button class="button is-white is-large is-fullwidth" data-target="cadastro.html">
+                                        Iniciar
+                                      </button>
+                                  </a>
+                            <br>
+                            <div>
+                                <p style="text-align: center;">Já tem uma conta? 
+                                    <a class="js-modal-trigger" data-target="modal-js-example" style="color: aliceblue;">
+                                        Entrar
+                                    </a>
+                                </p>
+                            </div>
+                  </section>
+                </div>
     </div>
+    <div id="modal-js-example" class="modal">
+                  <div class="modal-background" style="backdrop-filter: blur(5px);">
+                  </div>
+                        <div class="modal-content">
+                              <div class="container is-fluid"> <!-- style="opacity: 0.5;" -->
+                                    <div class="fixed-grid has-3-cols">
+                                          <div class="grid">
+                                                <div class="cell">
+                                                  <button onclick="loading_gg()" class="button is-white is-large is-fullwidth" style="opacity: 1;" id="btn-login-google">
+                                                    <img class="image is-64x64" src="./assets/logos/logo-google-login.png" alt="Logo google" >
+                                                  </button>
+                                                </div>
+                                                <div class="cell">
+                                                  <button onclick="loading_fb()" class="button is-white is-large is-fullwidth" style="opacity: 1;" id="btn-login-facebook">
+                                                    <img class="image is-64x64" src="./assets/logos/logo-facebook-login.svg" alt="Logo facebook">
+                                                  </button>
+                                                </div>
+                                                <div class="cell">
+                                                  <button onclick="loading_apple()" class="button is-white is-large is-fullwidth" style="opacity: 1;" id="btn-login-apple">
+                                                    <img class="image is-64x64" src="./assets/logos/logo-apple-login.png" alt="Logo apple">
+                                                  </button>
+                                                </div>
+                                          </div>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <div class="field">
+                                          <p class="control has-icons-left has-icons-right">
+                                              <input class="input is-large is-rounded is-white" type="email" placeholder="Email">
+                                              <span class="icon is-medium is-left">
+                                                <i class="fas fa-envelope"></i>
+                                              </span>
+                                              <span class="icon is-medium is-right">
+                                                <i class="fas fa-check"></i>
+                                              </span>
+                                          </p>
+                                    </div>
+                                    <br>
+                                    <div class="field">
+                                          <p class="control has-icons-left">
+                                              <input class="input is-large is-rounded is-white" type="password" placeholder="Senha">
+                                              <span class="icon is-medium is-left">
+                                                <i class="fas fa-lock is-white"></i>
+                                              </span>
+                                          </p>
+                                    </div>
+                                    <br>
+                                    <div class="field">
+                                          <p class="control">
+                                              <button onclick="loading()" class="button is-white is-large is-fullwidth" style="opacity: 1;" id="btn-login">
+                                                Login
+                                              </button>
+                                          </p>
+                                    </div>
+                              </div>
+                        </div>
+                  <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+    <!-- Javascript início -->
+    <script src="./js/javascript.js"></script>
+    <!-- Fim Javascript -->
   </body>
 </html>

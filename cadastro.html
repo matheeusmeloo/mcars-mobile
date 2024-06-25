@@ -1,28 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html data-theme="light">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Cadastro</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="./css/desable-itens.css"> -->
     <link rel="icon" type="image/x-icon" href="./assets/icons/favicon-mcars.svg">
     <link rel="stylesheet" href="./css/style.css">
   </head>
   <body>
         <div class="container is-fluid">
-        <section>
-        <form action="cad.php" method="get">
-            <label for="nome">Nome</label>
-            <input type="text" name="nome" id="idnome">
-            <label for="sobrenome">Sobrenome</label>
-            <input type="text" name="sobrenome" id="idsobrenome">
-            <label for="cpf">CPF</label>
-            <input type="char" name="cpf" id="idcpf">
-            <label for="email">Email</label>
-            <input type="email" name="email" id="idemail">
-            <input type="submit" value="Criar conta">
-        </form>
-    </section>
+            <div class="column">
+                <h2 class="title is-2 ">Crie sua conta</h2>
+                <p class="is-size-5 ">Preencha seus dados ou continue nas redes sociais.</p>
+            </div>
+           <br>
+           <div class="field">
+              <label class="label">Nome</label>
+                <div class="control">
+                    <input class="input" type="text" placeholder="e.g. Alex Smith">
+                </div>
+          </div>
+          <div class="field">
+            <label class="label">Email</label>
+              <div class="control">
+                  <input class="input" type="email" placeholder="Ex.: alexsmith@email.com" >
+              </div>
+          </div>
+          <div class="field">
+            <label class="label">Data de Nascimento</label>
+              <div class="control">
+                  <input class="input" type="date">
+              </div>
+          </div>
+          
+          <div class="field">
+            <label class="label">Telefone</label>
+              <div class="control">
+                  <input class="input" type="fone" placeholder="Ex.: (00) 9 0000-0000">
+              </div>
+          </div>
+          <div class="field">
+            <p class="control has-icons-right">
+              <label class="label ">Senha</label>
+              <input class="input" type="password">
+              <span class="icon is-small is-right">
+                <i class="fas fa-lock"></i>
+              </span>
+            </p>
+          </div>
+          <br>
+        <section class="container block">
+              <button class="button is-large is-fullwidth" data-target="modal-js-example">
+                  Cadastrar
+              </button>
+              <br>
+              <div>
+                  <p  style="text-align: center;">Já tem uma conta? <strong><a href="javascript:history.go(-1)" style="color: rgb(255, 255, 255);">Entrar</a></strong></p>
+              </div>
+        </section>
         </div>
+        <!-- Javascript início -->
+        <script src="./js/javascript.js"></script>
+        <!-- Fim Javascript -->
   </body>
 </html>
