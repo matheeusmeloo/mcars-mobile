@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Cadastro</title>
-    <!-- <link rel="stylesheet" href="./css/desable-itens.css"> -->
+    <script src="https://kit.fontawesome.com/a34697aa98.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/x-icon" href="./assets/icons/favicon-mcars.svg">
     <link rel="stylesheet" href="./css/style.css">
   </head>
@@ -12,51 +12,46 @@
         <div class="container is-fluid">
             <div class="column">
                 <h2 class="title is-2 ">Crie sua conta</h2>
-                <p class="is-size-5 ">Preencha seus dados ou continue nas redes sociais.</p>
+                <p class="is-size-5 ">Preencha seus dados ou cadastre com sua rede social.</p>
             </div>
            <br>
            <div class="field">
-              <label class="label">Nome</label>
-                <div class="control">
-                    <input class="input" type="text" placeholder="e.g. Alex Smith">
-                </div>
+            <label class="label">Nome completo</label>
+            <div class="control has-icons-left">
+              <input class="input is-medium" type="text" placeholder="Ex.: Matheus Melo" style="border: 0cap; background-color: #F4F4F4;">
+              <span class="icon is-small is-left">
+                <i class="fas fa-user"></i>
+              </span>
+            </div>
           </div>
           <div class="field">
             <label class="label">Email</label>
-              <div class="control">
-                  <input class="input" type="email" placeholder="Ex.: alexsmith@email.com" >
+              <div class="control has-icons-left">
+                  <input class="input is-medium" type="email" placeholder="Ex.: matheusmelo@email.com" style="border: 0cap; background-color: #F4F4F4;">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                  </span>
               </div>
           </div>
-          <div class="field">
-            <label class="label">Data de Nascimento</label>
-              <div class="control">
-                  <input class="input" type="date">
-              </div>
-          </div>
-          
-          <div class="field">
-            <label class="label">Telefone</label>
-              <div class="control">
-                  <input class="input" type="fone" placeholder="Ex.: (00) 9 0000-0000">
-              </div>
-          </div>
-          <div class="field">
-            <p class="control has-icons-right">
-              <label class="label ">Senha</label>
-              <input class="input" type="password">
-              <span class="icon is-small is-right">
-                <i class="fas fa-lock"></i>
-              </span>
-            </p>
+          <label class="label">Senha</label>
+          <div class="field has-addons">
+            <div class="control is-expanded">
+              <input class="input is-medium" type="password" placeholder="******" style="border: 0cap; background-color: #F4F4F4;" id="lookEye">
+            </div>
+            <div class="control">
+              <button class="button is-large" style="border: 0cap; background-color: #F4F4F4;">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
           </div>
           <br>
         <section class="container block">
-              <button class="button is-large is-fullwidth" data-target="modal-js-example">
+              <button class="button is-dark is-large is-fullwidth" data-target="modal-js-example">
                   Cadastrar
               </button>
               <br>
               <div>
-                  <p  style="text-align: center;">Já tem uma conta? <strong><a href="javascript:history.go(-1)" style="color: rgb(255, 255, 255);">Entrar</a></strong></p>
+                  <p  style="text-align: center;">Já tem uma conta? <strong><a href="javascript:history.go(-1)" style="color: rgb(0, 0, 0);">Entrar</a></strong></p>
               </div>
         </section>
         </div>

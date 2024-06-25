@@ -92,3 +92,29 @@ document.getElementById('indexLink').addEventListener('click', function(event) {
 });
 
 // ==================== FIM DA FUNÇÃO DE VOLTAR A PÁGINA INICIAL
+
+
+// clicar no botão do olhinho para ver a senha digitada
+
+let btn = document.querySelector('lnr-eye');
+
+btn.addEventListener('click', function() {
+
+    let input = document.querySelector('#password');
+
+    if(input.getAttribute('type') == 'password') {
+        input.setAttribute('type', 'text');
+    } else {
+        input.setAttribute('type', 'password');
+    }
+
+});
+
+// function loading_apple() {
+//   var button = document.getElementById('btn-login-apple');
+//   button.classList.add('is-loading');
+//   // Tempo para voltar ao normal
+//   setTimeout(function() {
+//       button.classList.remove('is-loading');
+//   }, 3000);
+// }
