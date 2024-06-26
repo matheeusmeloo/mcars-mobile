@@ -52,7 +52,7 @@ function loading() {
     // Tempo para voltar ao normal
     setTimeout(function() {
         button.classList.remove('is-loading');
-        window.location.href = "http://pt.stackoverflow.com";
+        window.location.href = "home.html";
     }, 3000);
 }
 function loading_fb() {
@@ -61,7 +61,7 @@ function loading_fb() {
   // Tempo para voltar ao normal
   setTimeout(function() {
       button.classList.remove('is-loading');
-      window.location.href = "http://pt.stackoverflow.com";
+      window.location.href = "home.html";
   }, 3000);
 }
 
@@ -71,7 +71,7 @@ function loading_gg() {
   // Tempo para voltar ao normal
   setTimeout(function() {
       button.classList.remove('is-loading');
-      window.location.href = "http://pt.stackoverflow.com";
+      window.location.href = "home.html";
   }, 3000);
 }
 
@@ -81,7 +81,16 @@ function loading_apple() {
   // Tempo para voltar ao normal
   setTimeout(function() {
       button.classList.remove('is-loading');
-      window.location.href = "http://pt.stackoverflow.com";
+      window.location.href = "home.html";
+  }, 3000);
+}
+function loading_cadastro() {
+  var button = document.getElementById('btn-cad');
+  button.classList.add('is-loading');
+  // Tempo para voltar ao normal
+  setTimeout(function() {
+      button.classList.remove('is-loading');
+      window.location.href = "home.html";
   }, 3000);
 }
 
@@ -117,3 +126,14 @@ function alertTemporario()
 // alert("Função em criação!");
 window.alert("Função em criação!"); 
 }
+
+//================ FUNÇÃO DE MENU DROPDOWN DAS CONFIGURAÇÕES DE PESQUISA ======
+
+document.addEventListener('DOMContentLoaded', () => {
+    const dropdownTrigger = document.querySelector('.dropdown-trigger');
+    const dropdown = dropdownTrigger.closest('.dropdown');
+
+    dropdownTrigger.addEventListener('click', () => {
+        dropdown.classList.toggle('is-active');
+    });
+});
