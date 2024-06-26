@@ -81,28 +81,47 @@ function loading_apple() {
   }, 3000);
 }
 
-// ===========================  FUNÇÃO PARA VOLTAR A PAGINA INICIAL E ABRIR O MODAL DE LOGIN
-
-document.getElementById('indexLink').addEventListener('click', function(event) {
-  event.preventDefault(); // Prevenir o comportamento padrão do link
-  window.history.back(); // Voltar uma página no histórico
-
-  // Exibir o modal
-  document.getElementById('modal-js-example').style.display = 'block';
-});
-
-// ==================== FIM DA FUNÇÃO DE VOLTAR A PÁGINA INICIAL
-
 
 // clicar no botão do olhinho para ver a senha digitada
 
 function lookEye() {
-  var passwordField = document.getElementById("password");
-            var passwordFieldType = passwordField.getAttribute("type");
-            
-            if (passwordFieldType === "password") {
-                passwordField.setAttribute("type", "text");
-            } else {
-                passwordField.setAttribute("type", "password");
-            }
+   var passwordField = document.getElementById("password");
+             var passwordFieldType = passwordField.getAttribute("type");
+
+             if (passwordFieldType === "password") {
+                 passwordField.setAttribute("type", "text");
+                 let el = document.getElementById('elemento');
+                  el.classList.remove('teste');
+                  el.classList.add('testando');
+             } else {
+                 passwordField.setAttribute("type", "password");
+             }
+}
+//       var iconEye = document.getElementById("eye_ico");
+//             var iconEye = iconEye.getAttribute("class");
+
+//             if (iconEye === "fas fa-eye") {
+//               iconEye.getAttribute("class", "fas fa-eye-slash");
+//             } else {
+//                 iconEye.getAttribute("class", "fas fa-eye");
+//             }
+
+//             this.classList.toggle("fa-eye");
+//   
+
+
+// ==================== FUNÇÃO VOLTAR ==================
+
+function voltar(){
+  history.go(-1)
+}
+
+// ==================== FIM DA FUNÇÃO VOLTAR ==================
+
+// ================ FUNÇÃO ALERT ==========
+
+function alertTemporario()
+{
+// alert("Função em criação!");
+window.alert("Função em criação!"); 
 }

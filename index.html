@@ -61,48 +61,29 @@
                   <div class="modal-background" style="backdrop-filter: blur(5px);">
                   </div>
                         <div class="modal-content">
-                              <div class="container is-fluid"> <!-- style="opacity: 0.5;" -->
-                                    <div class="fixed-grid has-3-cols">
-                                          <div class="grid">
-                                                <div class="cell">
-                                                  <button onclick="loading_gg()" class="button is-outlined is-large is-outline" id="btn-login-google">
-                                                    <i class="fa-brands fa-google fa-3x"></i>
-                                                  </button>
-                                                </div>
-                                                <div class="cell">
-                                                  <button onclick="loading_fb()" class="button is-outlined is-large is-fullwidth" id="btn-login-facebook" style="height: 4em;">
-                                                    <i class="fa-brands fa-facebook fa-3x"></i>
-                                                  </button>
-                                                </div>
-                                                <div class="cell">
-                                                  <button onclick="loading_apple()" class="button is-outlined is-large is-fullwidth" id="btn-login-apple">
-                                                    <i class="fa-brands fa-apple fa-3x"></i>
-                                                  </button>
-                                                </div>
-                                          </div>
-                                    </div>
-                                    <br>
-                                    <br>
+                            <div class="container is-fluid">                                     
+                              <h2 class="title is-2" style="color: aliceblue;">Olá novamente! 👋</h2>
+                              <p class="is-size-5 ">Por favor digite seus dados para login</p>
+                              <br>
                                     <div class="field">
-                                          <p class="control has-icons-left has-icons-right">
-                                              <input class="input is-large is-white" type="email" placeholder="Email">
-                                              <span class="icon is-medium is-left">
-                                                <i class="fas fa-envelope"></i>
-                                              </span>
-                                              <span class="icon is-medium is-right">
-                                                <i class="fas fa-check"></i>
-                                              </span>
-                                          </p>
+                                        <label class="label" style="color: aliceblue;">Email</label>
+                                        <div class="control has-icons-left">
+                                            <input class="input is-medium" type="email" placeholder="Ex.: matheusmelo@email.com">
+                                            <span class="icon is-small is-left">
+                                              <i class="fas fa-user"></i>
+                                            </span>
+                                        </div>
                                     </div>
-                                    <br>
                                     <div class="field">
-                                          <p class="control has-icons-left">
-                                              <input class="input is-large is-white" type="password" placeholder="Senha">
-                                              <span class="icon is-medium is-left">
-                                                <i class="fas fa-lock is-white"></i>
-                                              </span>
-                                          </p>
-                                    </div>
+                                      <label class="label" style="color: aliceblue;">Senha</label>
+                                      <div class="control has-icons-left has-icons-right">
+                                          <input class="input is-medium" type="password" placeholder="Senha">
+                                          <span class="icon is-small is-left">
+                                            <i class="fas fa-lock"></i>
+                                          </span>
+                                      </div>
+                                      <p class="help" style="text-align: right;"><a onclick="alertTemporario()" style="color: aliceblue;">Esqueceu sua senha?</a></p>
+                                  </div>
                                     <br>
                                     <div class="field">
                                           <p class="control">
@@ -111,9 +92,35 @@
                                               </button>
                                           </p>
                                     </div>
-                              </div>
+                                    <br>
+                                    <div class="container block">
+                                      <h4 class="subtitle is-5" style="text-align: center; color: aliceblue;">• Ou continue com •</h4>
+                                    </div>
+                                    <div class="columns is-mobile is-multiline is-centered">
+                                      <div class="column"></div>
+                                      <div class="column">
+                                        <button onclick="loading_gg()" class="button" id="btn-login-google" style="height: 4em; width: 4em; border-radius: 12px;">
+                                          <i class="fa-brands fa-google fa-2xl"></i>
+                                        </button>
+                                      </div>
+                                      <div class="column">
+                                        <button onclick="loading_fb()" class="button" id="btn-login-facebook" style="height: 4em; width: 4em; border-radius: 12px;">
+                                          <i class="fa-brands fa-facebook-f fa-2xl"></i>
+                                        </button>
+                                      </div>
+                                      <div class="column">
+                                        <button onclick="loading_apple()" class="button" id="btn-login-apple" style="height: 4em; width: 4em; border-radius: 12px;">
+                                          <i class="fa-brands fa-apple fa-2xl"></i>
+                                        </button>
+                                      </div>
+                                      <div class="column"></div>
+                                    </div>
+                                    <div>
+                                      <p  class="subtitle is-6" style="text-align: center; color: aliceblue;">Você ainda não tem uma conta? Sem problemas, você pode <strong><a href="cadastro.html" style="color: aliceblue;">criar uma!</a></strong></p>
+                                    </div>
+                            </div>
                         </div>
-                  <button class="modal-close is-large" aria-label="close"></button>
+          <button class="modal-close is-large" aria-label="close"></button>
     </div>
     <br>
     <br>

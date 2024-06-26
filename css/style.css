@@ -3,9 +3,9 @@
 .bola {
     border-radius: 50%;
     display: inline-block;
-    height: 10px;
-    width: 10px;
+    height: 5px;
+    width: 5px;
     border: none;
-    background-color: #000000;
+    background-color: #817D7C;
     position: inherit;
 }
