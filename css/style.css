@@ -1,11 +1,2 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css";
 
-.bola {
-    border-radius: 50%;
-    display: inline-block;
-    height: 5px;
-    width: 5px;
-    border: none;
-    background-color: #817D7C;
-    position: inherit;
-}

@@ -52,6 +52,7 @@ function loading() {
     // Tempo para voltar ao normal
     setTimeout(function() {
         button.classList.remove('is-loading');
+        window.location.href = "http://pt.stackoverflow.com";
     }, 3000);
 }
 function loading_fb() {
@@ -60,6 +61,7 @@ function loading_fb() {
   // Tempo para voltar ao normal
   setTimeout(function() {
       button.classList.remove('is-loading');
+      window.location.href = "http://pt.stackoverflow.com";
   }, 3000);
 }
 
@@ -69,6 +71,7 @@ function loading_gg() {
   // Tempo para voltar ao normal
   setTimeout(function() {
       button.classList.remove('is-loading');
+      window.location.href = "http://pt.stackoverflow.com";
   }, 3000);
 }
 
@@ -78,6 +81,7 @@ function loading_apple() {
   // Tempo para voltar ao normal
   setTimeout(function() {
       button.classList.remove('is-loading');
+      window.location.href = "http://pt.stackoverflow.com";
   }, 3000);
 }
 
@@ -97,18 +101,6 @@ function lookEye() {
                  passwordField.setAttribute("type", "password");
              }
 }
-//       var iconEye = document.getElementById("eye_ico");
-//             var iconEye = iconEye.getAttribute("class");
-
-//             if (iconEye === "fas fa-eye") {
-//               iconEye.getAttribute("class", "fas fa-eye-slash");
-//             } else {
-//                 iconEye.getAttribute("class", "fas fa-eye");
-//             }
-
-//             this.classList.toggle("fa-eye");
-//   
-
 
 // ==================== FUNÇÃO VOLTAR ==================
 
