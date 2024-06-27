@@ -55,18 +55,17 @@
     max-width: 1100px; 
     width: 100%; 
     position: relative; 
-  
 }
   
 .wrapper .carousel { 
     display: grid; 
     grid-auto-flow: column; 
     grid-auto-columns: calc((100% / 3) - 12px); 
-    gap: 16px; 
+    gap: 5px; 
     overflow-x: auto; 
     scroll-snap-type: x mandatory; 
     scroll-behavior: smooth; 
-    scrollbar-width: 0; 
+    scrollbar-width: 0;
 } 
   
 .carousel::-webkit-scrollbar { 
@@ -91,8 +90,8 @@
     border-radius: 16px; 
     display: flex; 
     cursor: pointer; 
-    width: 90%; 
-    padding-bottom: 15px; 
+    width: 85%;
+    padding-bottom: 15px;
     justify-content: center; 
     flex-direction: column; 
 } 
