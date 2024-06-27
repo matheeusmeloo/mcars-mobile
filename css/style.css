@@ -79,55 +79,33 @@
     justify-content: center; 
 } 
   
-.carousel.dragging { 
-    scroll-snap-type: none; 
-    scroll-behavior: auto; 
-} 
-  
 .carousel.no-transition { 
     scroll-behavior: auto; 
-} 
-  
-.carousel.dragging .card_slide { 
-    cursor: grab; 
-    user-select: none; 
-} 
+}
   
 .carousel .card_slide { 
     scroll-snap-align: start; 
-    height: 340px; 
+    height: 200px; 
     list-style: none; 
-    background: #fff; 
+    background: #141518; 
     border-radius: 16px; 
     display: flex; 
     cursor: pointer; 
-    width: 98%; 
+    width: 90%; 
     padding-bottom: 15px; 
-    align-items: center; 
     justify-content: center; 
     flex-direction: column; 
 } 
   
-.card_slide .img { 
-    background: green; 
-    width: 145px; 
-    height: 145px; 
-    border-radius: 50%; 
-  
-} 
   
 .card_slide .img img { 
-    width: 140px; 
-    height: 140px; 
-    object-fit: cover; 
-    border-radius: 50%; 
-    border: 4px solid #fff; 
+    width: 50%;
 } 
   
 .card_slide h2 { 
     font-weight: 500; 
     font-size: 1.56rem; 
-    margin: 30px 0 5px; 
+    margin: 5px 0 5px; 
 } 
   
 .card_slide span { 
