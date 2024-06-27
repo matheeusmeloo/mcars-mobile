@@ -127,13 +127,4 @@ function alertTemporario()
 window.alert("Função em criação!"); 
 }
 
-//================ FUNÇÃO DE MENU DROPDOWN DAS CONFIGURAÇÕES DE PESQUISA ======
-
-document.addEventListener('DOMContentLoaded', () => {
-    const dropdownTrigger = document.querySelector('.dropdown-trigger');
-    const dropdown = dropdownTrigger.closest('.dropdown');
-
-    dropdownTrigger.addEventListener('click', () => {
-        dropdown.classList.toggle('is-active');
-    });
-});
+// =============== 
