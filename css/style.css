@@ -2,23 +2,23 @@
 
 
 /* CSS DA NAVBAR DA HOME */
-.navbar {
+.navbarh {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 10px;
     background-color: #f3f3f3;
 }
-.navbar .logo {
+.navbarh .logo {
     width: 15%;
 }
-.navbar .notifications {
+.navbarh .notifications {
     position: relative;
     display: inline-block;
     cursor: pointer;
 }
 
-.navbar .notifications .badge {
+.navbarh .notifications .badge {
     position: absolute;
     top: -5px;
     right: -1px;
@@ -52,7 +52,7 @@
 /* CSS DO CARROSEL DE CARDS */
 
 .wrapper { 
-    max-width: 1100px; 
+    max-width: auto; 
     width: 100%; 
     position: relative; 
 }
@@ -61,7 +61,7 @@
     display: grid; 
     grid-auto-flow: column; 
     grid-auto-columns: calc((100% / 3) - 12px); 
-    gap: 5px; 
+    gap: 15px; 
     overflow-x: auto; 
     scroll-snap-type: x mandatory; 
     scroll-behavior: smooth; 
@@ -72,46 +72,31 @@
     display: none; 
 } 
   
-.carousel :where(.card_slide, .img) { 
-    display: flex; 
-    align-items: center; 
+/* .carousel :where(.card_slide, .img) { 
+    display: flex;
+    align-items: center;
     justify-content: center; 
-} 
+}  */
   
 .carousel.no-transition { 
     scroll-behavior: auto; 
 }
   
 .carousel .card_slide { 
-    scroll-snap-align: start; 
-    height: 200px; 
+    scroll-snap-align: inherit; 
+    height: 230px; 
     list-style: none; 
     background: #141518; 
     border-radius: 16px; 
-    display: flex; 
-    cursor: pointer; 
-    width: 85%;
+    /* display: flex;  */
+    cursor: pointer;
+    width: 100%;
+    padding-top: 10px;
     padding-bottom: 15px;
+    padding-left: 15px;
     justify-content: center; 
-    flex-direction: column; 
-} 
-  
-  
-.card_slide .img img { 
-    width: 50%;
-} 
-  
-.card_slide h2 { 
-    font-weight: 500; 
-    font-size: 1.56rem; 
-    margin: 5px 0 5px; 
-} 
-  
-.card_slide span { 
-    color: #6a6d78; 
-    font-size: 1.31rem; 
-  
-} 
+    /* flex-direction: column;  */
+}
   
 @media screen and (max-width: 900px) { 
     .wrapper .carousel { 
@@ -126,3 +111,6 @@
   
     } 
 }
+
+/* CARD GERADO POR CHATGPT (TESTE DE AJUSTE DE TELA) */
+
