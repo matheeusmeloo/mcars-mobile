@@ -82,7 +82,7 @@
     scroll-behavior: auto; 
 }
   
-.carousel .card_slide { 
+.carousel .card_slide_black { 
     scroll-snap-align: inherit; 
     height: 230px; 
     list-style: none; 
@@ -95,6 +95,22 @@
     padding-bottom: 15px;
     padding-left: 15px;
     justify-content: center; 
+    /* flex-direction: column;  */
+}
+
+.carousel .card_slide_white { 
+    scroll-snap-align: inherit; 
+    height: 230px; 
+    list-style: none; 
+    background: #ffffff; 
+    border-radius: 16px; 
+    /* display: flex;  */
+    cursor: pointer;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    justify-content: center;
     /* flex-direction: column;  */
 }
   
@@ -112,5 +128,11 @@
     } 
 }
 
-/* CARD GERADO POR CHATGPT (TESTE DE AJUSTE DE TELA) */
+/* CSS DO MENU SUPERIOR DA TELA HOME DE RECOMENDAÇÕES */
 
+.menu_top{
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
