@@ -63,19 +63,14 @@
     display: none; 
 } 
   
-/* .carousel :where(.card_slide, .img) { 
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-}  */
-  
 .carousel.no-transition { 
     scroll-behavior: auto; 
 }
   
 .carousel .card_slide_black { 
     scroll-snap-align: inherit; 
-    height: 230px; 
+    /* height: 250px;  */
+    max-height: max-content;
     list-style: none; 
     background: #141518; 
     border-radius: 16px; 
@@ -91,7 +86,8 @@
 
 .carousel .card_slide_white { 
     scroll-snap-align: inherit; 
-    height: 230px; 
+    /* height: 250px;  */
+    max-height: max-content;
     list-style: none; 
     background: #ffffff; 
     border-radius: 16px; 
@@ -103,6 +99,12 @@
     padding-left: 15px;
     justify-content: center;
     /* flex-direction: column;  */
+}
+.carousel .card_slide_white img{
+    max-width: 80%;
+}
+.carousel .card_slide_black img{
+    max-width: 80%;
 }
   
 @media screen and (max-width: 900px) { 
@@ -126,4 +128,15 @@
     display: flex;
     align-items: center;
     gap: 6px;
+}
+
+/* CSS DO MENU FLUTUANTE DA TELA */
+
+.floating-menu {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
 }
