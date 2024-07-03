@@ -10,35 +10,38 @@
 </head>
 <body style="background-color: #f3f3f3;">
     <!-- MENU SUPERIOR NAVBAR -->
-    <div class="container is-fluid">
-        <div class="navbarh">
-            <a href="#" class="logo"><img src="./assets/logos/logo-mc-black.svg" alt=""></a>
-            <div class="notifications">
-                <span class="icon"><i class="fa-regular fa-bell fa-2x"></i></span>
-                <span class="badge"></span>
+    <div class="container is-fluid pt-5">
+        <div class="container block">
+            <div class="is-flex is-justify-content-space-between">
+                <figure class="image is-32x32">
+                    <img src="./assets/logos/logo-mc-black.svg" alt="">
+                </figure>
+                <div class="notifications">
+                    <span class="icon"><i class="fa-regular fa-bell fa-2x"></i></span>
+                    <span class="badge"></span>
+                </div>
             </div>
         </div>
     </div>
-    
+    <br>
     <!-- BARRA DE PESQUISA -->
     <div class="container is-fluid">
         <div class="container">
-            <div class="input-wrapper">
+            <div class="input-wrapper box">
                 <i class="fa-solid fa-magnifying-glass has-text-grey-light is-size-4"></i>
                 <input type="text" placeholder="Pesquisar">
                 <a href="#"><i class="fa-solid fa-sliders has-text-grey-light is-size-4"></i></a>
             </div>
         </div>
     </div>
-    
-<br>
+    <br>
 <!-- AQUI SERÁ O CARROSEL COM OS DESTAQUES DO MÊS -->
     <div class="container is-fluid">
         <div class="wrapper"> 
             <ul class="carousel"> 
-                <li class="card_slide_black"> 
+                <li class="card_slide_black box"> 
                     <a href="index.html">
-                        <div class="fixed-grid has-2-colls">
+                        <div class="fixed-grid has-2-cols">
                             <div class="grid">
                                 <div class="cell is-col-span-2 has-text-centered"><img style="width: 80%;" src="./assets/images/2020-porsche-718-spider.png" alt="" draggable="false"> </div>
                                 <div class="cell"><p><strong class="has-text-white">Porsche 718 Spyder</strong></p></div>
@@ -48,9 +51,9 @@
                         </div>
                     </a>
                 </li>
-                <li class="card_slide_white"> 
+                <li class="card_slide_white box"> 
                     <a href="index.html">
-                        <div class="fixed-grid has-2-colls">
+                        <div class="fixed-grid has-2-cols">
                             <div class="grid">
                                 <div class="cell is-col-span-2 has-text-centered"><img style="width: 80%;" src="./assets/images/2020-porsche-718-spider.png" alt="" draggable="false"> </div>
                                 <div class="cell"><p><strong class="has-text-dark">Porsche 718 Spyder</strong></p></div>
@@ -60,9 +63,9 @@
                         </div>
                     </a>
                 </li> 
-                <li class="card_slide_black"> 
+                <li class="card_slide_black box"> 
                     <a href="index.html">
-                        <div class="fixed-grid has-2-colls">
+                        <div class="fixed-grid has-2-cols">
                             <div class="grid">
                                 <div class="cell is-col-span-2 has-text-centered"><img style="width: 80%;" src="./assets/images/2020-porsche-718-spider.png" alt="" draggable="false"> </div>
                                 <div class="cell"><p><strong class="has-text-white">Porsche 718 Spyder</strong></p></div>
@@ -72,9 +75,9 @@
                         </div>
                     </a> 
                 </li> 
-                <li class="card_slide_white">
+                <li class="card_slide_white box">
                     <a href="index.html">
-                        <div class="fixed-grid has-2-colls">
+                        <div class="fixed-grid has-2-cols">
                             <div class="grid">
                                 <div class="cell is-col-span-2 has-text-centered"><img style="width: 80%;" src="./assets/images/2020-porsche-718-spider.png" alt="" draggable="false"> </div>
                                 <div class="cell"><p><strong class="has-text-dark">Porsche 718 Spyder</strong></p></div>
@@ -87,8 +90,6 @@
             </ul>
         </div> 
     </div>
-    <br>
-    <br>
     <!-- CARD RECOMENDAÇÕES -->
     <div class="container is-fluid">
             <div class="container block">
@@ -99,13 +100,118 @@
             </div>
             <div class="container">
                 <div class="grid">
-                    <div class="cell py-3 px-4 has-background-primary has-text-primary-invert has-radius-normal">
-                        
+                    <div class="cell py-3 px-4 has-background-white-bis has-radius-normal box">
+                        <div class="fixed-grid has-1-cols">
+                            <div class="cell">
+                                <span>
+                                    <i class="fa-solid fa-star has-text-warning"></i> 4.5
+                                </span>
+                            </div>
+                            <div class="cell is-flex" style="overflow: hidden;">
+                                <figure class="" style="margin-right: -200px;">
+                                    <img style="width: 80%;" src="/assets/images/carro-pg-recomendations.png" alt="Carro modelo">
+                                </figure>
+                            </div>
+                            <div class="cell"><p><strong>Porsche 718 Spyder</strong></p></div>
+                            <div class="cell"><p><i class="fa-solid fa-dollar-sign has-text-warning"></i> 3.000.000,00</p></div>
+                        </div>
                     </div>
-                    <div class="cell py-3 px-4 has-background-primary has-text-primary-invert has-radius-normal">Card</div>
-                    <div class="cell py-3 px-4 has-background-primary has-text-primary-invert has-radius-normal">Card</div>
-                    <div class="cell py-3 px-4 has-background-primary has-text-primary-invert has-radius-normal">Card</div>
-                    <div class="cell py-3 px-4 has-background-primary has-text-primary-invert has-radius-normal">Card</div>
+                    <div class="cell py-3 px-4 has-background-white-bis has-radius-normal box">
+                        <div class="fixed-grid has-1-cols">
+                            <div class="cell">
+                                <span>
+                                    <i class="fa-solid fa-star has-text-warning"></i> 4.5
+                                </span>
+                            </div>
+                            <div class="cell is-flex" style="overflow: hidden;">
+                                <figure class="" style="margin-right: -200px;">
+                                    <img style="width: 80%;" src="/assets/images/carro-pg-recomendations.png" alt="Carro modelo">
+                                </figure>
+                            </div>
+                            <div class="cell"><p><strong>Porsche 718 Spyder</strong></p></div>
+                            <div class="cell"><p><i class="fa-solid fa-dollar-sign has-text-warning"></i> 3.000.000,00</p></div>
+                        </div>
+                    </div>
+                    <div class="cell py-3 px-4 has-background-white-bis has-radius-normal box">
+                        <div class="fixed-grid has-1-cols">
+                            <div class="cell">
+                                <span>
+                                    <i class="fa-solid fa-star has-text-warning"></i> 4.5
+                                </span>
+                            </div>
+                            <div class="cell is-flex" style="overflow: hidden;">
+                                <figure class="" style="margin-right: -200px;">
+                                    <img style="width: 80%;" src="/assets/images/carro-pg-recomendations.png" alt="Carro modelo">
+                                </figure>
+                            </div>
+                            <div class="cell"><p><strong>Porsche 718 Spyder</strong></p></div>
+                            <div class="cell"><p><i class="fa-solid fa-dollar-sign has-text-warning"></i> 3.000.000,00</p></div>
+                        </div>
+                    </div>
+                    <div class="cell py-3 px-4 has-background-white-bis has-radius-normal box">
+                        <div class="fixed-grid has-1-cols">
+                            <div class="cell">
+                                <span>
+                                    <i class="fa-solid fa-star has-text-warning"></i> 4.5
+                                </span>
+                            </div>
+                            <div class="cell is-flex" style="overflow: hidden;">
+                                <figure class="" style="margin-right: -200px;">
+                                    <img style="width: 80%;" src="/assets/images/carro-pg-recomendations.png" alt="Carro modelo">
+                                </figure>
+                            </div>
+                            <div class="cell"><p><strong>Porsche 718 Spyder</strong></p></div>
+                            <div class="cell"><p><i class="fa-solid fa-dollar-sign has-text-warning"></i> 3.000.000,00</p></div>
+                        </div>
+                    </div>
+                    <div class="cell py-3 px-4 has-background-white-bis has-radius-normal box">
+                        <div class="fixed-grid has-1-cols">
+                            <div class="cell">
+                                <span>
+                                    <i class="fa-solid fa-star has-text-warning"></i> 4.5
+                                </span>
+                            </div>
+                            <div class="cell is-flex" style="overflow: hidden;">
+                                <figure class="" style="margin-right: -200px;">
+                                    <img style="width: 80%;" src="/assets/images/carro-pg-recomendations.png" alt="Carro modelo">
+                                </figure>
+                            </div>
+                            <div class="cell"><p><strong>Porsche 718 Spyder</strong></p></div>
+                            <div class="cell"><p><i class="fa-solid fa-dollar-sign has-text-warning"></i> 3.000.000,00</p></div>
+                        </div>
+                    </div>
+                    <div class="cell py-3 px-4 has-background-white-bis has-radius-normal box">
+                        <div class="fixed-grid has-1-cols">
+                            <div class="cell">
+                                <span>
+                                    <i class="fa-solid fa-star has-text-warning"></i> 4.5
+                                </span>
+                            </div>
+                            <div class="cell is-flex" style="overflow: hidden;">
+                                <figure class="" style="margin-right: -200px;">
+                                    <img style="width: 80%;" src="/assets/images/carro-pg-recomendations.png" alt="Carro modelo">
+                                </figure>
+                            </div>
+                            <div class="cell"><p><strong>Porsche 718 Spyder</strong></p></div>
+                            <div class="cell"><p><i class="fa-solid fa-dollar-sign has-text-warning"></i> 3.000.000,00</p></div>
+                        </div>
+                    </div>
+                    <div class="cell py-3 px-4 has-background-white-bis has-radius-normal box">
+                        <div class="fixed-grid has-1-cols">
+                            <div class="cell">
+                                <span>
+                                    <i class="fa-solid fa-star has-text-warning"></i> 4.5
+                                </span>
+                            </div>
+                            <div class="cell is-flex" style="overflow: hidden;">
+                                <figure class="" style="margin-right: -200px;">
+                                    <img style="width: 80%;" src="/assets/images/carro-pg-recomendations.png" alt="Carro modelo">
+                                </figure>
+                            </div>
+                            <div class="cell"><p><strong>Porsche 718 Spyder</strong></p></div>
+                            <div class="cell"><p><i class="fa-solid fa-dollar-sign has-text-warning"></i> 3.000.000,00</p></div>
+                        </div>
+                    </div>
                 </div>
             </div>
     </div>

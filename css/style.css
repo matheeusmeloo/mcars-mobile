@@ -2,23 +2,14 @@
 
 
 /* CSS DA NAVBAR DA HOME */
-.navbarh {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 10px;
-    background-color: #f3f3f3;
-}
-.navbarh .logo {
-    width: 15%;
-}
-.navbarh .notifications {
+
+.container .notifications {
     position: relative;
     display: inline-block;
     cursor: pointer;
 }
 
-.navbarh .notifications .badge {
+.container .notifications .badge {
     position: absolute;
     top: -5px;
     right: -1px;
