@@ -93,6 +93,15 @@ function loading_cadastro() {
       window.location.href = "home.html";
   }, 3000);
 }
+function carrinho() {
+  var button = document.getElementById('btn-cart');
+  button.classList.add('is-loading');
+  // Tempo para voltar ao normal
+  setTimeout(function() {
+      button.classList.remove('is-loading');
+      window.location.href = "cart_buy.html";
+  }, 3000);
+}
 
 
 // clicar no botão do olhinho para ver a senha digitada

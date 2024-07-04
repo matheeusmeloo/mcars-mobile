@@ -43,22 +43,32 @@
     <br>
     <!-- DETALHES DO VEICULO -->
     <div class="container is-fluid">
-        
+        <div class="fixed-grid has-3-cols">
+            <div class="cell">
+
+            </div>
+        </div>
     </div>
     <!-- MENU FLUTUANTE DE COMPRA DO VEICULO-->
-        <div class="container is-fluid floating-menu">
-            <div class="columns is-multiline is-mobile has-background-dark has-radius-large">
-                    <div class="cell has-text-white">
-                        <p id="nameCar">Porsche 718 Spyder</p>
+        <div class="container is-fluid floating-menu block">
+            <div class="columns is-variable bd-klmn-columns is-mobile has-background-dark has-radius-large">
+                <div class="column is-7">
+                    <div class="bd-notification has-text-white has-text-left">
+                        <span class="block has-text-weight-bold is-size-6">
+                            Porsche 718 Spyder
+                        </span>
                         <br>
-                        <p id="priceCar">
+                        <span class="block">
                             <i class="fa-solid fa-dollar-sign has-text-warning"></i> 3.000.000,00
-                        </p>
+                        </span>
                     </div>
-                    <div class="column is-one-quarter">
-                        <button class="button is-white is-large">Comprar</button>
-                    </div>
-            </div>
+                </div>
+                <div class="column is-5 has-text-right">
+                  <div class="bd-notification">
+                    <button onclick="carrinho()" id="btn-cart" class="button is-white is-medium">Comprar</button>
+                  </div>
+                </div>
+              </div>
         </div>
      
       <!-- Javascript início -->
