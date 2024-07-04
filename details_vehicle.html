@@ -12,33 +12,40 @@
     <br>
     <div class="container is-fluid">
         <div class="container block">
-            <div class="columns is-gapless is-multiline is-mobile is-justify-content-center">
-                    <div class="column is-one-quarter">
+            <div class="columns is-gapless is-multiline is-mobile">
+                    <div class="column is-narrow-mobile is-narrow-desktop">
                         <button onclick="voltar()" class="button has-text-black-bis is-ghost">
                             <i class="fa-solid fa-chevron-left"></i>
                         </button>
                     </div>
                     <div class="column">
-                        <h4 class="has-text-weight-bold is-size-4">
+                        <h4 class="has-text-weight-bold is-size-4 has-text-centered">
                             Detalhes do carro
                         </h4>
                     </div>
               </div>
         </div>
         <div class="container">
-            <span class="has-text-weight-light">Porsche</span>
-            <h4 class="has-text-weight-bold">Porsche 718 Spyder</h4>
+            <span class="has-text-weight-light is-size-3-desktop">Porsche</span>
+            <h4 class="has-text-weight-bold is-size-3-desktop">Porsche 718 Spyder</h4>
         </div>
         <br>
     </div>
     <!-- VISÃO DO VEÍCULO EM 360º -->
+     
          <div class="container is-fluid">
-            <div class="cloudimage-360" data-folder="/assets/images/cars/prisma-2010-teste/" data-filename-x="silver-{index}.png"  data-amount-x="6">
-                <div class="cloudimage-360-inner-box">
-                    <div class="cloudimage-360-icons-container"></div>
-                    <img src="https://scaleflex.cloudimg.io/v7/plugins/js-cloudimage-360-view/assets/img/360.svg" class="cloudimage-360-view-360-circle" style="bottom: 5%; opacity: 1;">
+            <div class="columns">
+                <div class="column is-4"></div>
+                <div class="column">
+                    <div class="cloudimage-360" data-folder="/assets/images/cars/prisma-2010-teste/" data-filename-x="silver-{index}.png"  data-amount-x="6">
+                        <div class="cloudimage-360-inner-box">
+                            <div class="cloudimage-360-icons-container"></div>
+                            <img src="https://scaleflex.cloudimg.io/v7/plugins/js-cloudimage-360-view/assets/img/360.svg" class="cloudimage-360-view-360-circle" style="bottom: 5%; opacity: 1;">
+                        </div>
+                    </div>
                 </div>
-            </div>
+                <div class="column is-4"></div>
+             </div>
          </div>
     <br>
     <!-- DETALHES DO VEICULO -->
@@ -50,27 +57,28 @@
         </div>
     </div>
     <!-- MENU FLUTUANTE DE COMPRA DO VEICULO-->
-        <div class="container is-fluid floating-menu block">
-            <div class="columns is-variable bd-klmn-columns is-mobile has-background-dark has-radius-large">
-                <div class="column is-7">
-                    <div class="bd-notification has-text-white has-text-left">
-                        <span class="block has-text-weight-bold is-size-6">
-                            Porsche 718 Spyder
-                        </span>
-                        <br>
-                        <span class="block">
-                            <i class="fa-solid fa-dollar-sign has-text-warning"></i> 3.000.000,00
-                        </span>
+     <div class="container is-fluid">
+        <div class="container">
+            <div class="columns is-variable is-mobile has-background-dark has-radius-large floating-menu">
+                    <div class="column">
+                        <div class="has-text-white has-text-left">
+                            <span class="has-text-weight-bold is-size-6 is-size-3-desktop">
+                                Porsche 718 Spyder
+                            </span>
+                            <br>
+                            <span class="is-size-4-desktop">
+                                <i class="fa-solid fa-dollar-sign has-text-warning"></i> 3.000.000,00
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <div class="column is-5 has-text-right">
-                  <div class="bd-notification">
-                    <button onclick="carrinho()" id="btn-cart" class="button is-white is-medium">Comprar</button>
-                  </div>
-                </div>
-              </div>
+                    <div class="column is-narrow-mobile is-narrow-desktop has-text-right">
+                      <div class="bd-notification">
+                        <button onclick="carrinho()" id="btn-cart" class="button is-white is-medium is-size-3-desktop">Comprar</button>
+                      </div>
+                    </div>
+            </div>
         </div>
-     
+     </div>
       <!-- Javascript início -->
       <script src="https://scaleflex.cloudimg.io/v7/plugins/js-cloudimage-360-view/latest/js-cloudimage-360-view.min.js?func=proxy"></script>
       <script src="./js/javascript.js"></script>

@@ -119,6 +119,9 @@
         grid-auto-columns: 100%; 
   
     } 
+    .floating-menu {
+        width: 85%;
+    }
 }
 
 /* CSS DO MENU SUPERIOR DA TELA HOME DE RECOMENDAÇÕES */
@@ -134,8 +137,6 @@
 
 .floating-menu {
     position: fixed;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    padding: 10px 0;
+    bottom: 20px;
+    padding: 10px;
 }
