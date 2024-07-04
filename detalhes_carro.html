@@ -9,27 +9,56 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body style="background-color: #f3f3f3;">
+    <br>
     <div class="container is-fluid">
+        <div class="container block">
+            <div class="columns is-gapless is-multiline is-mobile is-justify-content-center">
+                    <div class="column is-one-quarter">
+                        <button onclick="voltar()" class="button has-text-black-bis is-ghost">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                    </div>
+                    <div class="column">
+                        <h4 class="has-text-weight-bold is-size-4">
+                            Detalhes do carro
+                        </h4>
+                    </div>
+              </div>
+        </div>
         <div class="container">
-            <div class="fixed-grid has-2-cols">
-                <div class="cell"><i class="fa-solid fa-chevron-left"></i></div>
-                <div class="cell">Detalhes do carro</div>
+            <span class="has-text-weight-light">Porsche</span>
+            <h4 class="has-text-weight-bold">Porsche 718 Spyder</h4>
+        </div>
+        <br>
+    </div>
+        <!-- VISÃO DO VEÍCULO EM 360º -->
+         <div class="container is-fluid">
+            <div class="cloudimage-360" data-folder="/assets/images/cars/prisma-2010-teste/" data-filename-x="silver-{index}.png"  data-amount-x="6">
+                <div class="cloudimage-360-inner-box">
+                    <div class="cloudimage-360-icons-container"></div>
+                    <img src="https://scaleflex.cloudimg.io/v7/plugins/js-cloudimage-360-view/assets/img/360.svg" class="cloudimage-360-view-360-circle" style="bottom: 5%; opacity: 1;">
+                </div>
+            </div>
+         </div>
+    <!-- MENU FLUTUANTE DE COMPRA DO CARRO-->
+        <div class="container is-fluid floating-menu">
+            <div class="columns is-multiline is-mobile has-background-dark has-radius-large">
+                    <div class="cell has-text-white">
+                        <p id="nameCar">Porsche 718 Spyder</p>
+                        <br>
+                        <p id="priceCar">
+                            <i class="fa-solid fa-dollar-sign has-text-warning"></i> 3.000.000,00
+                        </p>
+                    </div>
+                    <div class="column is-one-quarter">
+                        <button class="button is-white is-large">Comprar</button>
+                    </div>
             </div>
         </div>
-    </div>
-     <!-- MENU FLUTUANTE DETALHE CARRO-->
-     <div class="container is-fluid floating-menu">
-        <div class="fixed-grid has-4-cols has-background-dark has-radius-large box">
-            <div class="grid is-flex is-justify-content-space-around">
-                <div class="cell">
-                    <p>
-                        <strong class="has-text-dark">Porsche 718 Spyder</strong>
-                    </p>
-                </div>
-                <div class="cell is-row-span-2 has-text-dark has-text-centered"><button class="button is-white is-large">Comprar</button></div>
-                <div class="cell has-text-dark"><p><i class="fa-solid fa-dollar-sign has-text-warning"></i> 3.000.000,00</p></div>
-            </div>
-          </div>
-     </div>
+     
+      <!-- Javascript início -->
+      <script src="https://scaleflex.cloudimg.io/v7/plugins/js-cloudimage-360-view/latest/js-cloudimage-360-view.min.js?func=proxy"></script>
+      <script src="./js/javascript.js"></script>
+      <!-- Fim Javascript -->
 </body>
 </html>
