@@ -7,6 +7,13 @@ CREATE TABLE usuarios (
     provedor_id TEXT,
     foto_perfil TEXT,
     telefone TEXT,
+    cpf TEXT,
+    cep TEXT,
+    rua TEXT,
+    numero TEXT,
+    bairro TEXT,
+    cidade TEXT,
+    estado TEXT,
     criado_em TEXT NOT NULL DEFAULT (datetime('now')),
     atualizado_em TEXT NOT NULL DEFAULT (datetime('now'))
 );

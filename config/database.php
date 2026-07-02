@@ -23,5 +23,19 @@ function db(): PDO
         seed_database($pdo);
     }
 
+    migrar_colunas_novas($pdo);
+
     return $pdo;
+}
+
+function migrar_colunas_novas(PDO $pdo): void
+{
+    $colunasExistentes = array_column($pdo->query('PRAGMA table_info(usuarios)')->fetchAll(), 'name');
+    $colunasNovas = ['cpf', 'cep', 'rua', 'numero', 'bairro', 'cidade', 'estado'];
+
+    foreach ($colunasNovas as $coluna) {
+        if (!in_array($coluna, $colunasExistentes, true)) {
+            $pdo->exec("ALTER TABLE usuarios ADD COLUMN {$coluna} TEXT");
+        }
+    }
 }

@@ -137,3 +137,11 @@
     bottom: 20px;
     padding: 10px;
 }
+
+/* CSS DO PAINEL ESCURO DA TELA DE PERFIL (mesmo visual do modal de login) */
+
+.painel-escuro {
+    background-color: #141518;
+    border-radius: 16px;
+    padding: 2em 1.5em;
+}

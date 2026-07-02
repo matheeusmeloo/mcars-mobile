@@ -8,7 +8,10 @@ if ($id === null) {
 }
 
 $pdo = db();
-$stmt = $pdo->prepare('SELECT id, nome, email FROM usuarios WHERE id = :id');
+$stmt = $pdo->prepare(
+    'SELECT id, nome, email, foto_perfil, cpf, cep, rua, numero, bairro, cidade, estado
+     FROM usuarios WHERE id = :id'
+);
 $stmt->execute(['id' => $id]);
 $usuario = $stmt->fetch();
 

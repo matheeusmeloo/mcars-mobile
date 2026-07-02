@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     inicializarHome();
     inicializarDetalhes();
     inicializarCarrinho();
+    inicializarPerfil();
   });
 // =============== AQUI TERMINA O CÓDIGO DO MODAL ============
 
@@ -53,7 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function apiFetch(url, opcoes) {
   opcoes = opcoes || {};
-  var cabecalhos = Object.assign({ 'Content-Type': 'application/json' }, opcoes.headers || {});
+  var ehFormData = opcoes.body instanceof FormData;
+  var cabecalhos = Object.assign(ehFormData ? {} : { 'Content-Type': 'application/json' }, opcoes.headers || {});
 
   return fetch(url, Object.assign({}, opcoes, { headers: cabecalhos }))
     .then(function (resposta) {
@@ -358,6 +360,127 @@ function finalizarCompra() {
     button.classList.remove('is-loading');
     window.alert('Compra realizada com sucesso!');
     window.location.href = "home.html";
+  }).catch(function (erro) {
+    button.classList.remove('is-loading');
+    window.alert(erro.message);
+  });
+}
+
+// ==================== TELA DE PERFIL ====================
+
+function formatarCpf(valor) {
+  return valor.replace(/\D/g, '').slice(0, 11)
+    .replace(/(\d{3})(\d)/, '$1.$2')
+    .replace(/(\d{3})(\d)/, '$1.$2')
+    .replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+}
+
+function formatarCep(valor) {
+  return valor.replace(/\D/g, '').slice(0, 8)
+    .replace(/(\d{5})(\d)/, '$1-$2');
+}
+
+function preencherPerfil(usuario) {
+  document.getElementById('perfil-saudacao').textContent = 'Olá, ' + usuario.nome + '! 👋';
+  document.getElementById('perfil-nome').value = usuario.nome;
+  document.getElementById('perfil-email').value = usuario.email;
+  document.getElementById('perfil-cpf').value = usuario.cpf ? formatarCpf(usuario.cpf) : '';
+  document.getElementById('perfil-cep').value = usuario.cep || '';
+  document.getElementById('perfil-rua').value = usuario.rua || '';
+  document.getElementById('perfil-numero').value = usuario.numero || '';
+  document.getElementById('perfil-bairro').value = usuario.bairro || '';
+  document.getElementById('perfil-cidade').value = usuario.cidade || '';
+  document.getElementById('perfil-estado').value = usuario.estado || '';
+
+  var imagem = document.getElementById('perfil-foto-img');
+  var icone = document.getElementById('perfil-foto-icone');
+  if (usuario.foto_perfil) {
+    imagem.src = usuario.foto_perfil + '?t=' + Date.now();
+    imagem.style.display = 'inline-block';
+    icone.style.display = 'none';
+  } else {
+    imagem.style.display = 'none';
+    icone.style.display = 'inline-block';
+  }
+}
+
+function inicializarPerfil() {
+  var campoNome = document.getElementById('perfil-nome');
+  if (!campoNome) {
+    return;
+  }
+
+  apiFetch('./api/sessao.php').then(function (dados) {
+    if (!dados.autenticado) {
+      window.location.href = "index.html";
+      return;
+    }
+    preencherPerfil(dados.usuario);
+  }).catch(function () {
+    window.location.href = "index.html";
+  });
+
+  document.getElementById('perfil-cpf').addEventListener('input', function (evento) {
+    evento.target.value = formatarCpf(evento.target.value);
+  });
+  document.getElementById('perfil-cep').addEventListener('input', function (evento) {
+    evento.target.value = formatarCep(evento.target.value);
+  });
+}
+
+function salvarPerfil() {
+  var button = document.getElementById('btn-salvar-perfil');
+  button.classList.add('is-loading');
+
+  apiFetch('./api/perfil.php', {
+    method: 'POST',
+    body: JSON.stringify({
+      cpf: document.getElementById('perfil-cpf').value,
+      cep: document.getElementById('perfil-cep').value,
+      rua: document.getElementById('perfil-rua').value,
+      numero: document.getElementById('perfil-numero').value,
+      bairro: document.getElementById('perfil-bairro').value,
+      cidade: document.getElementById('perfil-cidade').value,
+      estado: document.getElementById('perfil-estado').value,
+    }),
+  }).then(function (dados) {
+    button.classList.remove('is-loading');
+    preencherPerfil(dados.usuario);
+    window.alert('Dados salvos com sucesso!');
+  }).catch(function (erro) {
+    button.classList.remove('is-loading');
+    window.alert(erro.message);
+  });
+}
+
+function enviarFoto(arquivo) {
+  if (!arquivo) {
+    return;
+  }
+
+  var dadosFormulario = new FormData();
+  dadosFormulario.append('foto', arquivo);
+
+  apiFetch('./api/foto_perfil.php', {
+    method: 'POST',
+    body: dadosFormulario,
+  }).then(function (dados) {
+    var imagem = document.getElementById('perfil-foto-img');
+    var icone = document.getElementById('perfil-foto-icone');
+    imagem.src = dados.foto_perfil + '?t=' + Date.now();
+    imagem.style.display = 'inline-block';
+    icone.style.display = 'none';
+  }).catch(function (erro) {
+    window.alert(erro.message);
+  });
+}
+
+function sair() {
+  var button = document.getElementById('btn-sair');
+  button.classList.add('is-loading');
+
+  apiFetch('./api/logout.php').then(function () {
+    window.location.href = "index.html";
   }).catch(function (erro) {
     button.classList.remove('is-loading');
     window.alert(erro.message);

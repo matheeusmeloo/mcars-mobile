@@ -1,1 +1,3 @@
 database/*.sqlite
+assets/uploads/*
+!assets/uploads/.gitkeep

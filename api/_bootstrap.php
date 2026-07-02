@@ -36,3 +36,25 @@ function require_login(): int
     }
     return $id;
 }
+
+function cpf_valido(string $cpf): bool
+{
+    $cpf = preg_replace('/\D/', '', $cpf);
+
+    if (strlen($cpf) !== 11 || preg_match('/^(\d)\1{10}$/', $cpf) === 1) {
+        return false;
+    }
+
+    for ($posicao = 9; $posicao < 11; $posicao++) {
+        $soma = 0;
+        for ($indice = 0; $indice < $posicao; $indice++) {
+            $soma += ((int) $cpf[$indice]) * (($posicao + 1) - $indice);
+        }
+        $digitoVerificador = ((10 * $soma) % 11) % 10;
+        if ((int) $cpf[$posicao] !== $digitoVerificador) {
+            return false;
+        }
+    }
+
+    return true;
+}
