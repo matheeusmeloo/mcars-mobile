@@ -9,17 +9,50 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body style="background-color: #f3f3f3;">
-    <!-- MENU FLUTUANTE -->
-     <div class="container is-fluid floating-menu">
-        <div class="fixed-grid has-4-cols has-background-dark has-radius-large box">
-            <div class="grid is-flex is-justify-content-space-around">
-                <a href="#" class="has-text-white"><div class="cell"><i class="fa-regular fa-house"></i></div></a>
-                <a href="#" class="has-text-white"><div class="cell"><i class="fa-solid fa-bag-shopping"></i></div></a>
-                <a href="#" class="has-text-white"><div class="cell"><i class="fa-regular fa-map is-size-4"></i></div></a>
-                <a href="#" class="has-text-white"><div class="cell"><i class="fa-regular fa-user is-size-4"></i></div></a>
+    <br>
+    <div class="container is-fluid">
+        <div class="container block">
+            <div class="columns is-gapless is-mobile">
+                <div class="column is-narrow">
+                    <button onclick="voltar()" class="button has-text-black-bis is-ghost">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                </div>
+                <div class="column">
+                    <h4 class="has-text-weight-bold is-size-4 has-text-centered">
+                        Carrinho de compras
+                    </h4>
+                </div>
             </div>
         </div>
-     </div>
+    </div>
+    <div class="container is-fluid">
+        <div class="container" id="lista-carrinho">
+            <p class="has-text-centered has-text-grey">Carregando...</p>
+        </div>
+    </div>
+    <br><br><br><br>
+    <!-- MENU FLUTUANTE DE FINALIZAR COMPRA -->
+    <div class="container is-fluid floating-menu">
+        <div class="container">
+            <div class="columns is-mobile has-background-dark has-radius-large">
+                <div class="column">
+                    <div class="has-text-white has-text-left">
+                        <span class="has-text-weight-bold is-size-6 is-size-3-desktop">Total</span>
+                        <br>
+                        <span class="is-size-4-desktop">
+                            <i class="fa-solid fa-dollar-sign has-text-warning"></i> <span id="carrinho-total">0,00</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="column is-narrow-mobile is-narrow-desktop has-text-right">
+                    <div class="bd-notification">
+                        <button onclick="finalizarCompra()" id="btn-checkout" class="button is-white is-medium is-size-3-desktop">Finalizar compra</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
  <!-- Javascript início -->
  <script src="./js/javascript.js"></script>
