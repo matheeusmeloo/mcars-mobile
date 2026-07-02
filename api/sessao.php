@@ -9,7 +9,7 @@ if ($id === null) {
 
 $pdo = db();
 $stmt = $pdo->prepare(
-    'SELECT id, nome, email, foto_perfil, cpf, cep, rua, numero, bairro, cidade, estado
+    'SELECT id, nome, email, foto_perfil, cpf, cep, rua, numero, bairro, cidade, estado, tipo
      FROM usuarios WHERE id = :id'
 );
 $stmt->execute(['id' => $id]);

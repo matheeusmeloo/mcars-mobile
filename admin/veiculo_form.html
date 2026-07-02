@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html data-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin · Veículo</title>
+    <script src="https://kit.fontawesome.com/a34697aa98.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="../assets/icons/favicon-mcars.svg">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body style="background-color: #f3f3f3;">
+    <br>
+    <div class="container is-fluid">
+        <div class="container block">
+            <div class="columns is-gapless is-mobile">
+                <div class="column is-narrow">
+                    <a href="veiculos.html" class="button has-text-black-bis is-ghost">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </a>
+                </div>
+                <div class="column">
+                    <h4 class="has-text-weight-bold is-size-4 has-text-centered" id="titulo-formulario">
+                        Novo veículo
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container is-fluid">
+        <div class="container box">
+            <div class="columns is-mobile">
+                <div class="column is-7">
+                    <div class="field">
+                        <label class="label">Marca</label>
+                        <div class="control"><input class="input" type="text" id="campo-marca" placeholder="Ex.: Porsche"></div>
+                    </div>
+                </div>
+                <div class="column is-5">
+                    <div class="field">
+                        <label class="label">Ano</label>
+                        <div class="control"><input class="input" type="number" id="campo-ano" placeholder="2024"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Modelo</label>
+                <div class="control"><input class="input" type="text" id="campo-modelo" placeholder="Ex.: 718 Spyder"></div>
+            </div>
+            <div class="columns is-mobile">
+                <div class="column is-6">
+                    <div class="field">
+                        <label class="label">Preço (R$)</label>
+                        <div class="control"><input class="input" type="number" step="0.01" id="campo-preco" placeholder="0,00"></div>
+                    </div>
+                </div>
+                <div class="column is-6">
+                    <div class="field">
+                        <label class="label">Localização</label>
+                        <div class="control"><input class="input" type="text" id="campo-localizacao" placeholder="Cidade"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Status</label>
+                <div class="control">
+                    <div class="select is-fullwidth">
+                        <select id="campo-status">
+                            <option value="disponivel">Disponível</option>
+                            <option value="reservado">Reservado</option>
+                            <option value="vendido">Vendido</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <p class="has-text-weight-bold">Especificações</p>
+            <br>
+            <div class="columns is-mobile">
+                <div class="column">
+                    <div class="field">
+                        <label class="label">Potência (rpm)</label>
+                        <div class="control"><input class="input" type="number" id="campo-potencia"></div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="field">
+                        <label class="label">Vel. máxima (km/h)</label>
+                        <div class="control"><input class="input" type="number" id="campo-velocidade"></div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="field">
+                        <label class="label">0-100 km/h (s)</label>
+                        <div class="control"><input class="input" type="number" step="0.1" id="campo-aceleracao"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="columns is-mobile">
+                <div class="column">
+                    <div class="field">
+                        <label class="label">Cor</label>
+                        <div class="control"><input class="input" type="text" id="campo-cor" placeholder="Ex.: Branco"></div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="field">
+                        <label class="label">Quilometragem</label>
+                        <div class="control"><input class="input" type="number" id="campo-quilometragem"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="columns is-mobile">
+                <div class="column">
+                    <div class="field">
+                        <label class="label">Combustível</label>
+                        <div class="control">
+                            <div class="select is-fullwidth">
+                                <select id="campo-combustivel">
+                                    <option value="">Não informado</option>
+                                    <option value="gasolina">Gasolina</option>
+                                    <option value="etanol">Etanol</option>
+                                    <option value="flex">Flex</option>
+                                    <option value="diesel">Diesel</option>
+                                    <option value="eletrico">Elétrico</option>
+                                    <option value="hibrido">Híbrido</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="field">
+                        <label class="label">Câmbio</label>
+                        <div class="control">
+                            <div class="select is-fullwidth">
+                                <select id="campo-cambio">
+                                    <option value="">Não informado</option>
+                                    <option value="manual">Manual</option>
+                                    <option value="automatico">Automático</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Descrição</label>
+                <div class="control">
+                    <textarea class="textarea" id="campo-descricao" placeholder="Detalhes adicionais do veículo"></textarea>
+                </div>
+            </div>
+            <br>
+            <button onclick="salvarVeiculo()" id="btn-salvar-veiculo" class="button is-dark is-fullwidth is-medium">
+                Salvar veículo
+            </button>
+        </div>
+    </div>
+    <br>
+    <div class="container is-fluid" id="secao-fotos" style="display: none;">
+        <div class="container box">
+            <p class="has-text-weight-bold">Foto de capa</p>
+            <div id="capa-preview"></div>
+            <input type="file" id="input-capa" accept="image/png, image/jpeg, image/webp" onchange="enviarImagemVeiculo(this.files[0], 'capa'); this.value='';">
+            <hr>
+            <p class="has-text-weight-bold">Galeria</p>
+            <div id="galeria-preview" class="columns is-multiline is-mobile"></div>
+            <input type="file" id="input-galeria" accept="image/png, image/jpeg, image/webp" onchange="enviarImagemVeiculo(this.files[0], 'galeria'); this.value='';">
+        </div>
+    </div>
+    <div class="container is-fluid" id="aviso-fotos">
+        <div class="container box has-text-centered has-text-grey">
+            Salve o veículo para poder adicionar fotos.
+        </div>
+    </div>
+    <br><br>
+</body>
+ <!-- Javascript início -->
+ <script src="../js/javascript.js"></script>
+ <!-- Fim Javascript -->
+</html>

@@ -11,8 +11,8 @@ function seed_database(PDO $pdo): void
     ];
 
     $inserirVeiculo = $pdo->prepare(
-        'INSERT INTO veiculos (marca, modelo, ano_fabricacao, preco, localizacao, potencia_rpm, velocidade_maxima_kmh, aceleracao_0_100, avaliacao_media)
-         VALUES (:marca, :modelo, :ano, :preco, :localizacao, 6500, 350, 4.4, 4.5)'
+        'INSERT INTO veiculos (marca, modelo, ano_fabricacao, preco, localizacao, potencia_rpm, velocidade_maxima_kmh, aceleracao_0_100, cor, quilometragem, combustivel, cambio, avaliacao_media)
+         VALUES (:marca, :modelo, :ano, :preco, :localizacao, 6500, 350, 4.4, \'Branco\', 12000, \'gasolina\', \'automatico\', 4.5)'
     );
     $inserirImagem = $pdo->prepare(
         'INSERT INTO veiculo_imagens (veiculo_id, url, tipo, ordem) VALUES (:veiculo_id, :url, :tipo, :ordem)'

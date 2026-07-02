@@ -37,6 +37,20 @@ function require_login(): int
     return $id;
 }
 
+function require_admin(): int
+{
+    $id = require_login();
+
+    $stmt = db()->prepare('SELECT tipo FROM usuarios WHERE id = :id');
+    $stmt->execute(['id' => $id]);
+
+    if ($stmt->fetchColumn() !== 'admin') {
+        json_response(['erro' => 'Acesso restrito a administradores.'], 403);
+    }
+
+    return $id;
+}
+
 function cpf_valido(string $cpf): bool
 {
     $cpf = preg_replace('/\D/', '', $cpf);

@@ -46,6 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
     inicializarDetalhes();
     inicializarCarrinho();
     inicializarPerfil();
+    inicializarAdminVeiculos();
+    inicializarAdminVeiculoForm();
   });
 // =============== AQUI TERMINA O CÓDIGO DO MODAL ============
 
@@ -402,6 +404,8 @@ function preencherPerfil(usuario) {
     imagem.style.display = 'none';
     icone.style.display = 'inline-block';
   }
+
+  document.getElementById('campo-link-admin').style.display = usuario.tipo === 'admin' ? 'block' : 'none';
 }
 
 function inicializarPerfil() {
@@ -483,6 +487,225 @@ function sair() {
     window.location.href = "index.html";
   }).catch(function (erro) {
     button.classList.remove('is-loading');
+    window.alert(erro.message);
+  });
+}
+
+// ==================== ADMIN: ACESSO RESTRITO ====================
+
+function verificarAcessoAdmin(aoAutorizar) {
+  apiFetch('../api/sessao.php').then(function (dados) {
+    if (!dados.autenticado) {
+      window.location.href = "../index.html";
+      return;
+    }
+    if (dados.usuario.tipo !== 'admin') {
+      window.alert('Acesso restrito a administradores.');
+      window.location.href = "../home.html";
+      return;
+    }
+    aoAutorizar(dados.usuario);
+  }).catch(function () {
+    window.location.href = "../index.html";
+  });
+}
+
+// ==================== ADMIN: LISTAGEM DE VEÍCULOS ====================
+
+var RUBRICA_STATUS = { disponivel: 'Disponível', reservado: 'Reservado', vendido: 'Vendido' };
+var RUBRICA_STATUS_COR = { disponivel: 'is-success', reservado: 'is-warning', vendido: 'is-danger' };
+
+function linhaTabelaVeiculo(veiculo) {
+  var capa = veiculo.capa || './assets/images/2020-porsche-718-spider.png';
+  return '<tr>' +
+      '<td><img src="../' + capa.replace(/^\.\//, '') + '" style="width: 64px; height: 64px; object-fit: cover; border-radius: 8px;"></td>' +
+      '<td>' + veiculo.marca + ' ' + veiculo.modelo + '<br><span class="has-text-grey-light is-size-7">' + veiculo.ano_fabricacao + '</span></td>' +
+      '<td>R$ ' + formatarPreco(veiculo.preco) + '</td>' +
+      '<td>' + veiculo.localizacao + '</td>' +
+      '<td><span class="tag ' + (RUBRICA_STATUS_COR[veiculo.status] || '') + '">' + (RUBRICA_STATUS[veiculo.status] || veiculo.status) + '</span></td>' +
+      '<td class="has-text-right">' +
+        '<a href="veiculo_form.html?id=' + veiculo.id + '" class="button is-small is-ghost"><i class="fa-solid fa-pen"></i></a>' +
+        '<button onclick="excluirVeiculo(' + veiculo.id + ')" class="button is-small is-ghost has-text-danger"><i class="fa-solid fa-trash"></i></button>' +
+      '</td>' +
+    '</tr>';
+}
+
+function carregarTabelaVeiculos() {
+  var container = document.getElementById('tabela-container');
+  apiFetch('../api/admin/veiculos.php').then(function (dados) {
+    var veiculos = dados.veiculos || [];
+    if (veiculos.length === 0) {
+      container.innerHTML = '<p class="has-text-centered has-text-grey">Nenhum veículo cadastrado ainda.</p>';
+      return;
+    }
+    container.innerHTML = '<table class="table is-fullwidth is-hoverable">' +
+        '<thead><tr><th>Foto</th><th>Veículo</th><th>Preço</th><th>Localização</th><th>Status</th><th></th></tr></thead>' +
+        '<tbody>' + veiculos.map(linhaTabelaVeiculo).join('') + '</tbody>' +
+      '</table>';
+  }).catch(function (erro) {
+    container.innerHTML = '<p class="has-text-centered has-text-danger">' + erro.message + '</p>';
+  });
+}
+
+function inicializarAdminVeiculos() {
+  if (!document.getElementById('tabela-container')) {
+    return;
+  }
+  verificarAcessoAdmin(function () {
+    carregarTabelaVeiculos();
+  });
+}
+
+function excluirVeiculo(id) {
+  if (!window.confirm('Tem certeza que deseja excluir este veículo?')) {
+    return;
+  }
+  apiFetch('../api/admin/veiculos.php?id=' + id, { method: 'DELETE' }).then(function () {
+    carregarTabelaVeiculos();
+  }).catch(function (erro) {
+    window.alert(erro.message);
+  });
+}
+
+// ==================== ADMIN: FORMULÁRIO DE VEÍCULO ====================
+
+function veiculoIdDaUrl() {
+  return new URLSearchParams(window.location.search).get('id');
+}
+
+function renderizarFotosVeiculo(imagens) {
+  var capa = imagens.filter(function (img) { return img.tipo === 'capa'; })[0];
+  var galeria = imagens.filter(function (img) { return img.tipo === 'galeria'; });
+
+  document.getElementById('capa-preview').innerHTML = capa
+    ? '<div style="position: relative; display: inline-block;">' +
+        '<img src="../' + capa.url.replace(/^\.\//, '') + '" style="width: 120px; height: 90px; object-fit: cover; border-radius: 8px;">' +
+        '<button onclick="removerImagemVeiculo(' + capa.id + ')" class="button is-small is-danger" style="position: absolute; top: -8px; right: -8px; border-radius: 50%; width: 1.8em; height: 1.8em; padding: 0;"><i class="fa-solid fa-xmark"></i></button>' +
+      '</div>'
+    : '<p class="has-text-grey">Nenhuma foto de capa ainda.</p>';
+
+  document.getElementById('galeria-preview').innerHTML = galeria.map(function (img) {
+    return '<div class="column is-narrow" style="position: relative;">' +
+        '<img src="../' + img.url.replace(/^\.\//, '') + '" style="width: 100px; height: 80px; object-fit: cover; border-radius: 8px;">' +
+        '<button onclick="removerImagemVeiculo(' + img.id + ')" class="button is-small is-danger" style="position: absolute; top: -8px; right: -8px; border-radius: 50%; width: 1.8em; height: 1.8em; padding: 0;"><i class="fa-solid fa-xmark"></i></button>' +
+      '</div>';
+  }).join('');
+}
+
+function preencherFormularioVeiculo(veiculo) {
+  document.getElementById('titulo-formulario').textContent = veiculo.marca + ' ' + veiculo.modelo;
+  document.getElementById('campo-marca').value = veiculo.marca;
+  document.getElementById('campo-modelo').value = veiculo.modelo;
+  document.getElementById('campo-ano').value = veiculo.ano_fabricacao;
+  document.getElementById('campo-preco').value = veiculo.preco;
+  document.getElementById('campo-localizacao').value = veiculo.localizacao;
+  document.getElementById('campo-status').value = veiculo.status;
+  document.getElementById('campo-potencia').value = veiculo.potencia_rpm || '';
+  document.getElementById('campo-velocidade').value = veiculo.velocidade_maxima_kmh || '';
+  document.getElementById('campo-aceleracao').value = veiculo.aceleracao_0_100 || '';
+  document.getElementById('campo-cor').value = veiculo.cor || '';
+  document.getElementById('campo-quilometragem').value = veiculo.quilometragem || '';
+  document.getElementById('campo-combustivel').value = veiculo.combustivel || '';
+  document.getElementById('campo-cambio').value = veiculo.cambio || '';
+  document.getElementById('campo-descricao').value = veiculo.descricao || '';
+
+  document.getElementById('secao-fotos').style.display = 'block';
+  document.getElementById('aviso-fotos').style.display = 'none';
+  renderizarFotosVeiculo(veiculo.imagens || []);
+}
+
+function inicializarAdminVeiculoForm() {
+  if (!document.getElementById('campo-marca')) {
+    return;
+  }
+
+  verificarAcessoAdmin(function () {
+    var id = veiculoIdDaUrl();
+    if (!id) {
+      return;
+    }
+    apiFetch('../api/admin/veiculos.php?id=' + id).then(function (veiculo) {
+      preencherFormularioVeiculo(veiculo);
+    }).catch(function (erro) {
+      window.alert(erro.message);
+      window.location.href = "veiculos.html";
+    });
+  });
+}
+
+function dadosFormularioVeiculo() {
+  return {
+    marca: document.getElementById('campo-marca').value.trim(),
+    modelo: document.getElementById('campo-modelo').value.trim(),
+    ano_fabricacao: document.getElementById('campo-ano').value,
+    preco: document.getElementById('campo-preco').value,
+    localizacao: document.getElementById('campo-localizacao').value.trim(),
+    status: document.getElementById('campo-status').value,
+    potencia_rpm: document.getElementById('campo-potencia').value,
+    velocidade_maxima_kmh: document.getElementById('campo-velocidade').value,
+    aceleracao_0_100: document.getElementById('campo-aceleracao').value,
+    cor: document.getElementById('campo-cor').value.trim(),
+    quilometragem: document.getElementById('campo-quilometragem').value,
+    combustivel: document.getElementById('campo-combustivel').value,
+    cambio: document.getElementById('campo-cambio').value,
+    descricao: document.getElementById('campo-descricao').value.trim(),
+  };
+}
+
+function salvarVeiculo() {
+  var button = document.getElementById('btn-salvar-veiculo');
+  var id = veiculoIdDaUrl();
+  button.classList.add('is-loading');
+
+  apiFetch('../api/admin/veiculos.php' + (id ? ('?id=' + id) : ''), {
+    method: id ? 'PUT' : 'POST',
+    body: JSON.stringify(dadosFormularioVeiculo()),
+  }).then(function (dados) {
+    button.classList.remove('is-loading');
+    if (!id) {
+      window.location.href = "veiculo_form.html?id=" + dados.id;
+      return;
+    }
+    window.alert('Veículo atualizado com sucesso!');
+  }).catch(function (erro) {
+    button.classList.remove('is-loading');
+    window.alert(erro.message);
+  });
+}
+
+function enviarImagemVeiculo(arquivo, tipo) {
+  if (!arquivo) {
+    return;
+  }
+  var id = veiculoIdDaUrl();
+  var dadosFormulario = new FormData();
+  dadosFormulario.append('foto', arquivo);
+  dadosFormulario.append('veiculo_id', id);
+  dadosFormulario.append('tipo', tipo);
+
+  apiFetch('../api/admin/veiculo_imagens.php', {
+    method: 'POST',
+    body: dadosFormulario,
+  }).then(function () {
+    return apiFetch('../api/admin/veiculos.php?id=' + id);
+  }).then(function (veiculo) {
+    renderizarFotosVeiculo(veiculo.imagens || []);
+  }).catch(function (erro) {
+    window.alert(erro.message);
+  });
+}
+
+function removerImagemVeiculo(imagemId) {
+  if (!window.confirm('Remover esta foto?')) {
+    return;
+  }
+  var id = veiculoIdDaUrl();
+
+  apiFetch('../api/admin/veiculo_imagens.php?id=' + imagemId, { method: 'DELETE' }).then(function () {
+    return apiFetch('../api/admin/veiculos.php?id=' + id);
+  }).then(function (veiculo) {
+    renderizarFotosVeiculo(veiculo.imagens || []);
+  }).catch(function (erro) {
     window.alert(erro.message);
   });
 }
