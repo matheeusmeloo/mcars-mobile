@@ -80,9 +80,9 @@ function formatarPreco(valor) {
 // ==================== AVISOS FLUTUANTES (TOASTS) ====================
 
 var ICONES_AVISO = {
-  sucesso: 'fa-circle-check',
-  erro: 'fa-circle-exclamation',
-  info: 'fa-circle-info',
+  sucesso: 'ph-check-circle',
+  erro: 'ph-warning-circle',
+  info: 'ph-info',
 };
 
 function mostrarAviso(mensagem, tipo) {
@@ -101,7 +101,7 @@ function mostrarAviso(mensagem, tipo) {
 
   var icone = document.createElement('span');
   icone.className = 'aviso-icone icon';
-  icone.innerHTML = '<i class="fa-solid ' + ICONES_AVISO[tipo] + '"></i>';
+  icone.innerHTML = '<i class="ph-fill ' + ICONES_AVISO[tipo] + '"></i>';
 
   var texto = document.createElement('span');
   texto.className = 'aviso-texto';
@@ -109,7 +109,7 @@ function mostrarAviso(mensagem, tipo) {
 
   var fechar = document.createElement('span');
   fechar.className = 'aviso-fechar';
-  fechar.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+  fechar.innerHTML = '<i class="ph ph-x"></i>';
 
   function remover() {
     balao.classList.add('aviso-saida');
@@ -261,8 +261,8 @@ function cardDestaqueHtml(veiculo, indice) {
           '<div class="grid">' +
             '<div class="cell is-col-span-2 has-text-centered"><img src="' + capa + '" alt="" draggable="false"></div>' +
             '<div class="cell"><p><strong class="' + textoClasse + '">' + veiculo.marca + ' ' + veiculo.modelo + '</strong></p></div>' +
-            '<div class="cell is-row-span-2 ' + textoClasse + ' has-text-centered"><p><i class="fa-solid fa-location-dot ' + textoClasse + '"></i> ' + veiculo.localizacao + '</p></div>' +
-            '<div class="cell ' + textoClasse + '"><p><i class="fa-solid fa-dollar-sign has-text-warning"></i> ' + formatarPreco(veiculo.preco) + '</p></div>' +
+            '<div class="cell is-row-span-2 ' + textoClasse + ' has-text-centered"><p><i class="ph ph-map-pin ' + textoClasse + '"></i> ' + veiculo.localizacao + '</p></div>' +
+            '<div class="cell ' + textoClasse + '"><p><i class="ph-fill ph-currency-dollar has-text-warning"></i> ' + formatarPreco(veiculo.preco) + '</p></div>' +
           '</div>' +
         '</div>' +
       '</a>' +
@@ -274,10 +274,10 @@ function cardRecomendacaoHtml(veiculo) {
 
   return '<a href="details_vehicle.html?id=' + veiculo.id + '" class="cell py-3 px-4 has-background-white-bis has-radius-normal box">' +
       '<div class="fixed-grid has-1-cols">' +
-        '<div class="cell"><span><i class="fa-solid fa-star has-text-warning"></i> ' + (veiculo.avaliacao_media || 0) + '</span></div>' +
+        '<div class="cell"><span><i class="ph-fill ph-star has-text-warning"></i> ' + (veiculo.avaliacao_media || 0) + '</span></div>' +
         '<div class="cell is-flex" style="overflow: hidden;"><figure style="margin-right: -200px;"><img style="width: 80%;" src="' + capa + '" alt="Carro modelo"></figure></div>' +
         '<div class="cell"><p><strong>' + veiculo.marca + ' ' + veiculo.modelo + '</strong></p></div>' +
-        '<div class="cell"><p><i class="fa-solid fa-dollar-sign has-text-warning"></i> ' + formatarPreco(veiculo.preco) + '</p></div>' +
+        '<div class="cell"><p><i class="ph-fill ph-currency-dollar has-text-warning"></i> ' + formatarPreco(veiculo.preco) + '</p></div>' +
       '</div>' +
     '</a>';
 }
@@ -365,11 +365,11 @@ function cardCarrinhoHtml(item) {
       '<div class="column is-narrow"><img src="' + capa + '" alt="" style="width: 90px;"></div>' +
       '<div class="column">' +
         '<p><strong>' + item.marca + ' ' + item.modelo + '</strong></p>' +
-        '<p class="has-text-grey-light"><i class="fa-solid fa-location-dot"></i> ' + item.localizacao + '</p>' +
-        '<p><i class="fa-solid fa-dollar-sign has-text-warning"></i> ' + formatarPreco(item.preco) + '</p>' +
+        '<p class="has-text-grey-light"><i class="ph ph-map-pin"></i> ' + item.localizacao + '</p>' +
+        '<p><i class="ph-fill ph-currency-dollar has-text-warning"></i> ' + formatarPreco(item.preco) + '</p>' +
       '</div>' +
       '<div class="column is-narrow">' +
-        '<button class="button is-ghost has-text-danger" onclick="removerDoCarrinho(' + item.id + ')"><i class="fa-solid fa-trash"></i></button>' +
+        '<button class="button is-ghost has-text-danger" onclick="removerDoCarrinho(' + item.id + ')"><i class="ph ph-trash"></i></button>' +
       '</div>' +
     '</div>';
 }
@@ -575,8 +575,8 @@ function linhaTabelaVeiculo(veiculo) {
       '<td>' + veiculo.localizacao + '</td>' +
       '<td><span class="tag ' + (RUBRICA_STATUS_COR[veiculo.status] || '') + '">' + (RUBRICA_STATUS[veiculo.status] || veiculo.status) + '</span></td>' +
       '<td class="has-text-right">' +
-        '<a href="veiculo_form.html?id=' + veiculo.id + '" class="button is-small is-ghost"><i class="fa-solid fa-pen"></i></a>' +
-        '<button onclick="excluirVeiculo(' + veiculo.id + ')" class="button is-small is-ghost has-text-danger"><i class="fa-solid fa-trash"></i></button>' +
+        '<a href="veiculo_form.html?id=' + veiculo.id + '" class="button is-small is-ghost"><i class="ph ph-pencil-simple"></i></a>' +
+        '<button onclick="excluirVeiculo(' + veiculo.id + ')" class="button is-small is-ghost has-text-danger"><i class="ph ph-trash"></i></button>' +
       '</td>' +
     '</tr>';
 }
@@ -631,14 +631,14 @@ function renderizarFotosVeiculo(imagens) {
   document.getElementById('capa-preview').innerHTML = capa
     ? '<div style="position: relative; display: inline-block;">' +
         '<img src="../' + capa.url.replace(/^\.\//, '') + '" style="width: 120px; height: 90px; object-fit: cover; border-radius: 8px;">' +
-        '<button onclick="removerImagemVeiculo(' + capa.id + ')" class="button is-small is-danger" style="position: absolute; top: -8px; right: -8px; border-radius: 50%; width: 1.8em; height: 1.8em; padding: 0;"><i class="fa-solid fa-xmark"></i></button>' +
+        '<button onclick="removerImagemVeiculo(' + capa.id + ')" class="button is-small is-danger" style="position: absolute; top: -8px; right: -8px; border-radius: 50%; width: 1.8em; height: 1.8em; padding: 0;"><i class="ph ph-x"></i></button>' +
       '</div>'
     : '<p class="has-text-grey">Nenhuma foto de capa ainda.</p>';
 
   document.getElementById('galeria-preview').innerHTML = galeria.map(function (img) {
     return '<div class="column is-narrow" style="position: relative;">' +
         '<img src="../' + img.url.replace(/^\.\//, '') + '" style="width: 100px; height: 80px; object-fit: cover; border-radius: 8px;">' +
-        '<button onclick="removerImagemVeiculo(' + img.id + ')" class="button is-small is-danger" style="position: absolute; top: -8px; right: -8px; border-radius: 50%; width: 1.8em; height: 1.8em; padding: 0;"><i class="fa-solid fa-xmark"></i></button>' +
+        '<button onclick="removerImagemVeiculo(' + img.id + ')" class="button is-small is-danger" style="position: absolute; top: -8px; right: -8px; border-radius: 50%; width: 1.8em; height: 1.8em; padding: 0;"><i class="ph ph-x"></i></button>' +
       '</div>';
   }).join('');
 }

@@ -1,5 +1,10 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css";
 
+/* CSS DE TAMANHO DOS ÍCONES PHOSPHOR (equivalente ao fa-2x/fa-2xl/fa-5x) */
+
+.ph-2x { font-size: 2em; }
+.ph-2xl { font-size: 1.75em; }
+.ph-5x { font-size: 4.5em; }
 
 /* CSS DA NAVBAR DA HOME */
 

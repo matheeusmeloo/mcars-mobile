@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Meu perfil</title>
-    <script src="https://kit.fontawesome.com/a34697aa98.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="icon" type="image/x-icon" href="./assets/icons/favicon-mcars.svg">
     <link rel="stylesheet" href="./css/style.css">
 </head>
@@ -15,7 +15,7 @@
             <div class="columns is-gapless is-mobile">
                     <div class="column is-narrow">
                         <button onclick="voltar()" class="button has-text-black-bis is-ghost">
-                            <i class="fa-solid fa-chevron-left"></i>
+                            <i class="ph ph-caret-left"></i>
                         </button>
                     </div>
                     <div class="column">
@@ -32,9 +32,9 @@
             <div class="has-text-centered">
                 <div style="position: relative; display: inline-block;">
                     <img id="perfil-foto-img" src="" alt="Foto de perfil" style="width: 96px; height: 96px; border-radius: 50%; object-fit: cover; display: none;">
-                    <i id="perfil-foto-icone" class="fa-solid fa-circle-user fa-5x" style="color: aliceblue;"></i>
+                    <i id="perfil-foto-icone" class="ph ph-user-circle ph-5x" style="color: aliceblue;"></i>
                     <button type="button" onclick="document.getElementById('perfil-foto-input').click()" class="button is-white" style="position: absolute; bottom: 0; right: -10px; border-radius: 50%; width: 2.2em; height: 2.2em; padding: 0;">
-                        <i class="fa-solid fa-camera"></i>
+                        <i class="ph ph-camera"></i>
                     </button>
                     <input type="file" id="perfil-foto-input" accept="image/png, image/jpeg, image/webp" style="display: none;" onchange="enviarFoto(this.files[0])">
                 </div>
@@ -48,7 +48,7 @@
                 <div class="control has-icons-left">
                     <input class="input is-medium" type="text" id="perfil-nome" readonly>
                     <span class="icon is-small is-left">
-                      <i class="fas fa-user"></i>
+                      <i class="ph ph-user"></i>
                     </span>
                 </div>
             </div>
@@ -57,7 +57,7 @@
                 <div class="control has-icons-left">
                     <input class="input is-medium" type="email" id="perfil-email" readonly>
                     <span class="icon is-small is-left">
-                      <i class="fas fa-envelope"></i>
+                      <i class="ph ph-envelope"></i>
                     </span>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                 <div class="control has-icons-left">
                     <input class="input is-medium" type="text" id="perfil-cpf" placeholder="000.000.000-00" maxlength="14">
                     <span class="icon is-small is-left">
-                      <i class="fas fa-id-card"></i>
+                      <i class="ph ph-identification-card"></i>
                     </span>
                 </div>
             </div>
@@ -132,7 +132,7 @@
             <div class="field" id="campo-link-admin" style="display: none;">
                 <p class="control">
                     <a href="admin/veiculos.html" class="button is-large is-fullwidth" style="background: transparent; border: 1px solid aliceblue; color: aliceblue;">
-                        <i class="fa-solid fa-screwdriver-wrench" style="margin-right: 0.5em;"></i> Painel administrativo
+                        <i class="ph ph-gear" style="margin-right: 0.5em;"></i> Painel administrativo
                     </a>
                 </p>
             </div>
@@ -150,10 +150,10 @@
      <div class="container is-fluid floating-menu">
         <div class="fixed-grid has-4-cols has-background-dark has-radius-large box">
             <div class="grid is-flex is-justify-content-space-around">
-                <a href="home.html" class="has-text-white"><div class="cell"><i class="fa-regular fa-house is-size-4"></i></div></a>
-                <a href="cart_buy.html" class="has-text-white"><div class="cell"><i class="fa-regular fa-bag-shopping is-size-4"></i></div></a>
-                <a href="#" class="has-text-white"><div class="cell"><i class="fa-regular fa-map is-size-4"></i></div></a>
-                <a href="perfil.html" class="has-text-white"><div class="cell"><i class="fa-solid fa-user is-size-4"></i></div></a>
+                <a href="home.html" class="has-text-white"><div class="cell"><i class="ph ph-house is-size-4"></i></div></a>
+                <a href="cart_buy.html" class="has-text-white"><div class="cell"><i class="ph ph-shopping-bag is-size-4"></i></div></a>
+                <a href="#" class="has-text-white"><div class="cell"><i class="ph ph-map-trifold is-size-4"></i></div></a>
+                <a href="perfil.html" class="has-text-white"><div class="cell"><i class="ph-fill ph-user is-size-4"></i></div></a>
             </div>
           </div>
      </div>
