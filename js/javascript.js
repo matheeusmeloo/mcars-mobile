@@ -77,6 +77,58 @@ function formatarPreco(valor) {
 // ==================== FIM DA FUNÇÃO AUXILIAR ====================
 
 
+// ==================== AVISOS FLUTUANTES (TOASTS) ====================
+
+var ICONES_AVISO = {
+  sucesso: 'fa-circle-check',
+  erro: 'fa-circle-exclamation',
+  info: 'fa-circle-info',
+};
+
+function mostrarAviso(mensagem, tipo) {
+  tipo = ICONES_AVISO[tipo] ? tipo : 'info';
+
+  var container = document.getElementById('aviso-container');
+  if (!container) {
+    container = document.createElement('div');
+    container.id = 'aviso-container';
+    container.className = 'aviso-container';
+    document.body.appendChild(container);
+  }
+
+  var balao = document.createElement('div');
+  balao.className = 'aviso-balao aviso-' + tipo;
+
+  var icone = document.createElement('span');
+  icone.className = 'aviso-icone icon';
+  icone.innerHTML = '<i class="fa-solid ' + ICONES_AVISO[tipo] + '"></i>';
+
+  var texto = document.createElement('span');
+  texto.className = 'aviso-texto';
+  texto.textContent = mensagem;
+
+  var fechar = document.createElement('span');
+  fechar.className = 'aviso-fechar';
+  fechar.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+
+  function remover() {
+    balao.classList.add('aviso-saida');
+    setTimeout(function () { balao.remove(); }, 250);
+  }
+
+  fechar.addEventListener('click', remover);
+
+  balao.appendChild(icone);
+  balao.appendChild(texto);
+  balao.appendChild(fechar);
+  container.appendChild(balao);
+
+  setTimeout(remover, 4000);
+}
+
+// ==================== FIM DOS AVISOS FLUTUANTES ====================
+
+
 // FUNÇÃO SIMPLES PARA MOSTRAR CARREGAMENTO FAKE AO CLICAR NOS BOTÕES
 function loading() {
     var button = document.getElementById('btn-login');
@@ -92,7 +144,7 @@ function loading() {
         window.location.href = "home.html";
     }).catch(function (erro) {
         button.classList.remove('is-loading');
-        window.alert(erro.message);
+        mostrarAviso(erro.message, 'erro');
     });
 }
 function loading_fb() {
@@ -139,7 +191,7 @@ function loading_cadastro() {
       window.location.href = "home.html";
   }).catch(function (erro) {
       button.classList.remove('is-loading');
-      window.alert(erro.message);
+      mostrarAviso(erro.message, 'erro');
   });
 }
 function carrinho() {
@@ -157,7 +209,7 @@ function carrinho() {
           window.location.href = "index.html";
           return;
       }
-      window.alert(erro.message);
+      mostrarAviso(erro.message, 'erro');
   });
 }
 
@@ -190,8 +242,7 @@ function voltar(){
 
 function alertTemporario()
 {
-// alert("Função em criação!");
-window.alert("Função em criação!");
+mostrarAviso("Função em criação!", 'info');
 }
 
 // =============== FIM FUNÇÃO ALERT ===============
@@ -251,7 +302,7 @@ function inicializarHome() {
           : '<p class="has-text-centered has-text-grey">Nenhum veículo encontrado.</p>';
       }
     }).catch(function (erro) {
-      window.alert(erro.message);
+      mostrarAviso(erro.message, 'erro');
     });
   }
 
@@ -300,7 +351,7 @@ function inicializarDetalhes() {
       visualizador.setAttribute('data-folder', imagem360.url);
     }
   }).catch(function (erro) {
-    window.alert(erro.message);
+    mostrarAviso(erro.message, 'erro');
     window.location.href = "home.html";
   });
 }
@@ -341,13 +392,13 @@ function inicializarCarrinho() {
         window.location.href = "index.html";
         return;
       }
-      window.alert(erro.message);
+      mostrarAviso(erro.message, 'erro');
     });
   }
 
   window.removerDoCarrinho = function (itemId) {
     apiFetch('./api/carrinho.php?id=' + itemId, { method: 'DELETE' }).then(carregar).catch(function (erro) {
-      window.alert(erro.message);
+      mostrarAviso(erro.message, 'erro');
     });
   };
 
@@ -360,11 +411,11 @@ function finalizarCompra() {
 
   apiFetch('./api/checkout.php', { method: 'POST' }).then(function () {
     button.classList.remove('is-loading');
-    window.alert('Compra realizada com sucesso!');
+    mostrarAviso('Compra realizada com sucesso!', 'sucesso');
     window.location.href = "home.html";
   }).catch(function (erro) {
     button.classList.remove('is-loading');
-    window.alert(erro.message);
+    mostrarAviso(erro.message, 'erro');
   });
 }
 
@@ -450,10 +501,10 @@ function salvarPerfil() {
   }).then(function (dados) {
     button.classList.remove('is-loading');
     preencherPerfil(dados.usuario);
-    window.alert('Dados salvos com sucesso!');
+    mostrarAviso('Dados salvos com sucesso!', 'sucesso');
   }).catch(function (erro) {
     button.classList.remove('is-loading');
-    window.alert(erro.message);
+    mostrarAviso(erro.message, 'erro');
   });
 }
 
@@ -475,7 +526,7 @@ function enviarFoto(arquivo) {
     imagem.style.display = 'inline-block';
     icone.style.display = 'none';
   }).catch(function (erro) {
-    window.alert(erro.message);
+    mostrarAviso(erro.message, 'erro');
   });
 }
 
@@ -487,7 +538,7 @@ function sair() {
     window.location.href = "index.html";
   }).catch(function (erro) {
     button.classList.remove('is-loading');
-    window.alert(erro.message);
+    mostrarAviso(erro.message, 'erro');
   });
 }
 
@@ -500,7 +551,7 @@ function verificarAcessoAdmin(aoAutorizar) {
       return;
     }
     if (dados.usuario.tipo !== 'admin') {
-      window.alert('Acesso restrito a administradores.');
+      mostrarAviso('Acesso restrito a administradores.', 'erro');
       window.location.href = "../home.html";
       return;
     }
@@ -563,7 +614,7 @@ function excluirVeiculo(id) {
   apiFetch('../api/admin/veiculos.php?id=' + id, { method: 'DELETE' }).then(function () {
     carregarTabelaVeiculos();
   }).catch(function (erro) {
-    window.alert(erro.message);
+    mostrarAviso(erro.message, 'erro');
   });
 }
 
@@ -627,7 +678,7 @@ function inicializarAdminVeiculoForm() {
     apiFetch('../api/admin/veiculos.php?id=' + id).then(function (veiculo) {
       preencherFormularioVeiculo(veiculo);
     }).catch(function (erro) {
-      window.alert(erro.message);
+      mostrarAviso(erro.message, 'erro');
       window.location.href = "veiculos.html";
     });
   });
@@ -666,10 +717,10 @@ function salvarVeiculo() {
       window.location.href = "veiculo_form.html?id=" + dados.id;
       return;
     }
-    window.alert('Veículo atualizado com sucesso!');
+    mostrarAviso('Veículo atualizado com sucesso!', 'sucesso');
   }).catch(function (erro) {
     button.classList.remove('is-loading');
-    window.alert(erro.message);
+    mostrarAviso(erro.message, 'erro');
   });
 }
 
@@ -691,7 +742,7 @@ function enviarImagemVeiculo(arquivo, tipo) {
   }).then(function (veiculo) {
     renderizarFotosVeiculo(veiculo.imagens || []);
   }).catch(function (erro) {
-    window.alert(erro.message);
+    mostrarAviso(erro.message, 'erro');
   });
 }
 
@@ -706,6 +757,6 @@ function removerImagemVeiculo(imagemId) {
   }).then(function (veiculo) {
     renderizarFotosVeiculo(veiculo.imagens || []);
   }).catch(function (erro) {
-    window.alert(erro.message);
+    mostrarAviso(erro.message, 'erro');
   });
 }

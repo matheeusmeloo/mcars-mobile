@@ -145,3 +145,66 @@
     border-radius: 16px;
     padding: 2em 1.5em;
 }
+
+/* CSS DOS AVISOS FLUTUANTES (TOASTS) */
+
+.aviso-container {
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    width: 100%;
+    max-width: 420px;
+    padding: 0 16px;
+    pointer-events: none;
+}
+
+.aviso-balao {
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #141518;
+    color: aliceblue;
+    border-radius: 999px;
+    padding: 12px 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    animation: aviso-entrada 0.25s ease-out;
+}
+
+.aviso-balao.aviso-saida {
+    animation: aviso-saida 0.25s ease-in forwards;
+}
+
+.aviso-balao .aviso-texto {
+    flex: 1;
+    font-size: 0.95em;
+}
+
+.aviso-balao .aviso-fechar {
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.aviso-balao .aviso-fechar:hover {
+    opacity: 1;
+}
+
+.aviso-balao.aviso-sucesso .aviso-icone { color: #23d160; }
+.aviso-balao.aviso-erro .aviso-icone { color: #ff3860; }
+.aviso-balao.aviso-info .aviso-icone { color: #3e8ed0; }
+
+@keyframes aviso-entrada {
+    from { opacity: 0; transform: translateY(-16px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes aviso-saida {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-16px); }
+}
